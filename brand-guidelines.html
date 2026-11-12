@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brand Guidelines | GANA</title>
+  <meta name="description" content="The complete GANA Brand Guidelines: brand overview, logo, typography, color, texture, pattern, packaging, spaces and sensory experience. Flip through every page.">
+  <meta property="og:title" content="GANA Brand Guidelines">
+  <meta property="og:description" content="Flip through every page of the GANA Brand Guidelines Book.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="Images/guidelines/spread-02.webp">
+  <link rel="icon" type="image/png" href="Images/gana-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html#top" class="logo" aria-label="GANA home"><img class="logo-img" src="Images/gana-logo.png" alt="GANA"></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span>
+    </button>
+    <nav id="site-nav" class="site-nav">
+      <a href="index.html#story">Our Story</a>
+      <a href="index.html#experience">The Experience</a>
+      <a href="index.html#personality">Personality</a>
+      <a href="index.html#who">Who It's For</a>
+      <a href="brand-guidelines.html" aria-current="page">Brand Guidelines</a>
+      <a href="index.html#visit" class="btn btn-green btn-small">Visit Us</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <section class="gl-hero">
+      <div class="container">
+        <p class="eyebrow">Brand guidelines</p>
+        <h1>The GANA Brand Guidelines.</h1>
+        <p class="lead">Every page of the guidebook in one place. Turn pages with the arrows, your keyboard, or a swipe. Jump to a section, zoom in on the details, or read any page as text.</p>
+      </div>
+    </section>
+
+    <section class="gl-viewer" aria-label="Brand guidelines viewer">
+      <div class="gl-wrap">
+
+        <nav class="gl-chips" id="gl-chips" aria-label="Guideline sections"></nav>
+
+        <div class="gl-stage" id="gl-stage">
+          <button type="button" class="gl-arrow gl-prev" id="gl-prev" aria-label="Previous page">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <figure class="gl-page" id="gl-page">
+            <img id="gl-img" src="Images/guidelines/spread-01.webp" width="1125" height="875" alt="Cover: the cream GANA wordmark on a GANA Green background." fetchpriority="high">
+          </figure>
+          <button type="button" class="gl-arrow gl-next" id="gl-next" aria-label="Next page">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <div class="gl-bar">
+          <div class="gl-meta" aria-live="polite">
+            <p class="gl-count" id="gl-count">Cover &middot; 1 of 21</p>
+            <h2 class="gl-title" id="gl-title">Cover</h2>
+          </div>
+          <div class="gl-actions">
+            <button type="button" class="btn btn-ghost btn-small" id="gl-zoom">Zoom</button>
+            <button type="button" class="btn btn-ghost btn-small" id="gl-textbtn" aria-expanded="false" aria-controls="gl-text">Read as text</button>
+            <button type="button" class="btn btn-ghost btn-small" id="gl-share">Copy link</button>
+          </div>
+        </div>
+
+        <label class="sr-only" for="gl-range">Go to page</label>
+        <input type="range" class="gl-range" id="gl-range" min="1" max="21" value="1">
+
+        <div class="gl-text" id="gl-text" hidden></div>
+
+        <ol class="gl-thumbs" id="gl-thumbs" aria-label="All pages"></ol>
+
+        <p class="gl-hint">Tip: use the left and right arrow keys to turn pages, Home and End to jump to the start or end, and tap or click a page to zoom.</p>
+
+        <noscript><p class="gl-hint">Turn on JavaScript to flip through the guidebook pages.</p></noscript>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="gl-lb" id="gl-lb" role="dialog" aria-modal="true" aria-label="Zoomed page" hidden>
+    <div class="gl-lb-bar">
+      <p class="gl-lb-title" id="gl-lb-title"></p>
+      <div class="gl-lb-actions">
+        <button type="button" class="btn btn-small" id="gl-lb-prev">Previous</button>
+        <button type="button" class="btn btn-small" id="gl-lb-next">Next</button>
+        <button type="button" class="btn btn-small" id="gl-lb-zoom">Zoom in</button>
+        <button type="button" class="btn btn-small" id="gl-lb-close">Close</button>
+      </div>
+    </div>
+    <div class="gl-lb-scroll" id="gl-lb-scroll">
+      <img id="gl-lb-img" src="" alt="">
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a href="index.html#top" class="logo" aria-label="GANA home"><img class="logo-img" src="Images/gana-logo.png" alt="GANA" loading="lazy"></a>
+      <p>Freshly pressed sugarcane juice. Rooted in the ingredient.</p>
+      <p class="small"><a href="brand-guidelines.html">Brand Guidelines</a> &middot; &copy; <span id="year">2026</span> GANA. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js?v=6"></script>
+  <script src="guidelines-data.js?v=6"></script>
+  <script src="guidelines.js?v=6"></script>
+</body>
+</html>
