@@ -72,18 +72,39 @@
 
   /* ---------- pillars ---------- */
   var pillars = [
-    ['01', 'Freshness and Wellness', 'Fresh sugarcane juice is at the center of GANA. The brand supports a thoughtful approach to everyday refreshment, with clear information about the product and its ingredients.'],
-    ['02', 'Connection to the Source', 'The farm story connects the finished drink to where it begins. Named farm sourcing and stories about the ingredient help make this connection specific and understandable.'],
-    ['03', 'Sustainability in Practice', 'Sustainability guides choices across sourcing, packaging, and disposal. The focus is on practical material choices, reducing unnecessary packaging, and considering what happens after the drink is finished.'],
-    ['04', 'Sensory Connection', 'Sugarcane shapes how people experience GANA. “Feel the Cane” brings its texture into the packaging and physical environment. “First Press” connects the sound of preparation to the product. Scent and taste extend the experience within the store.'],
-    ['05', 'A Flexible, Recognizable Identity', 'GANA remains recognizable through its logo, core typography, core colors, and graphic language. These elements support variation across flavors, locations, seasons, and applications while keeping the brand connected.']
+    ['01', 'Freshness and Wellness', 'Fresh sugarcane juice is at the center of GANA.', 'Support a thoughtful approach to everyday refreshment, with clear information about the product and its ingredients.'],
+    ['02', 'Connection to the Source', 'The farm story connects the finished drink to where it begins.', 'Use named farm sourcing and stories about the ingredient to make this connection specific and understandable.'],
+    ['03', 'Sustainability in Practice', 'Sustainability guides choices across sourcing, packaging, and disposal.', 'Focus on practical material choices, reduce unnecessary packaging, and consider what happens after the drink is finished.'],
+    ['04', 'Sensory Connection', 'Sugarcane shapes how people experience GANA.', 'Bring \u201cFeel the Cane\u201d into packaging and spaces, \u201cFirst Press\u201d into the sound of preparation, and scent and taste into the store.'],
+    ['05', 'A Flexible, Recognizable Identity', 'GANA remains recognizable through its logo, core typography, core colors, and graphic language.', 'Let these elements support variation across flavors, locations, seasons, and applications while keeping the brand connected.']
   ];
-  var pl = $('pillars');
+  var pl = $('pillars'), pIdx = 0;
+  var pTabs = el('div', 'pil-tabs'); pTabs.setAttribute('role', 'tablist'); pTabs.setAttribute('aria-label', 'Strategic pillars'); pTabs.setAttribute('aria-orientation', 'vertical');
+  var pPanel = el('div', 'pil-panel'); pPanel.setAttribute('role', 'tabpanel'); pPanel.setAttribute('aria-live', 'polite');
   pillars.forEach(function (p, i) {
-    var d = el('details'); if (i === 0) d.open = true;
-    d.innerHTML = '<summary><span class="pn">' + p[0] + '</span>' + p[1] + '</summary><p>' + p[2] + '</p>';
-    pl.appendChild(d);
+    var b = el('button', 'pil-tab', '<span class="pn">' + p[0] + '</span><span>' + p[1] + '</span>');
+    b.type = 'button'; b.setAttribute('role', 'tab'); b.id = 'pil-t' + i;
+    b.addEventListener('click', function () { showPillar(i); });
+    pTabs.appendChild(b);
   });
+  pl.appendChild(pTabs); pl.appendChild(pPanel);
+  function showPillar(i) {
+    pIdx = (i + pillars.length) % pillars.length;
+    var p = pillars[pIdx];
+    Array.prototype.forEach.call(pTabs.children, function (b, k) { b.setAttribute('aria-selected', String(k === pIdx)); b.tabIndex = k === pIdx ? 0 : -1; });
+    pPanel.setAttribute('aria-labelledby', 'pil-t' + pIdx);
+    pPanel.innerHTML = '<span class="pil-num" aria-hidden="true">' + p[0] + '</span><h4>' + p[1] + '</h4>' +
+      '<div class="pil-row"><span class="g-tag">The idea</span><p>' + p[2] + '</p></div>' +
+      '<div class="pil-row"><span class="g-tag">In practice</span><p>' + p[3] + '</p></div>' +
+      '<div class="pil-nav"><button type="button" class="btn btn-ghost btn-small" id="pil-prev">Previous</button><span class="pil-count">' + (pIdx + 1) + ' of ' + pillars.length + '</span><button type="button" class="btn btn-ghost btn-small" id="pil-next">Next</button></div>';
+    $('pil-prev').addEventListener('click', function () { showPillar(pIdx - 1); });
+    $('pil-next').addEventListener('click', function () { showPillar(pIdx + 1); });
+  }
+  pTabs.addEventListener('keydown', function (e) {
+    var d = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : (e.key === 'ArrowUp' || e.key === 'ArrowLeft') ? -1 : 0;
+    if (!d) return; e.preventDefault(); showPillar(pIdx + d); pTabs.children[pIdx].focus();
+  });
+  showPillar(0);
 
   /* ---------- logo studio ---------- */
   var ARR = [

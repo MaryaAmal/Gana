@@ -174,7 +174,7 @@
   lbZoom.addEventListener('click', function () { setZoom(!lb.classList.contains('is-zoomed')); });
   lbImg.addEventListener('click', function (e) { setZoom(!lb.classList.contains('is-zoomed'), e); });
   lb.addEventListener('click', function (e) { if (e.target === lbScroll) closeLightbox(); });
-  $('gl-hero-book').addEventListener('click', function () { openLightbox(0); });
+  
 
   document.addEventListener('keydown', function (e) {
     if (lb.hidden || e.altKey || e.ctrlKey || e.metaKey) return;

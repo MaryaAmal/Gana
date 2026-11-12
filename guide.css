@@ -48,15 +48,30 @@
 .voice-list button[aria-expanded="true"] .hint { color: #5e7a0a; }
 
 /* pillars */
-.pillars { display: grid; gap: .6rem; }
-.pillars details { background: #fff; border-radius: var(--radius); box-shadow: 0 6px 20px rgba(27, 27, 27, .06); }
-.pillars summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 1.2rem; padding: 1.1rem 1.4rem; font-weight: 500; font-size: 1.1rem; }
-.pillars summary::-webkit-details-marker { display: none; }
-.pillars summary::after { content: "+"; margin-left: auto; font-size: 1.6rem; font-weight: 300; color: var(--green); transition: transform .25s; }
-.pillars details[open] summary::after { transform: rotate(45deg); }
-.pillars .pn { color: var(--green); font-weight: 700; }
-.pillars details p { margin: 0; padding: 0 1.4rem 1.4rem 4.4rem; font-weight: 300; line-height: 1.7; max-width: 52em; }
-.pillars summary:focus-visible { outline: 3px solid var(--ink); outline-offset: -3px; border-radius: var(--radius); }
+.pillars { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: clamp(1rem, 3vw, 2.5rem); align-items: stretch; }
+.pil-tabs { display: grid; gap: .5rem; align-content: start; }
+.pil-tab { display: flex; align-items: center; gap: 1rem; width: 100%; text-align: left; font: inherit; font-weight: 500; font-size: 1.05rem; padding: 1rem 1.2rem; border: 2px solid transparent; border-radius: var(--radius); background: #fff; color: var(--ink); cursor: pointer; box-shadow: 0 6px 20px rgba(27, 27, 27, .06); transition: background .2s, transform .2s, border-color .2s; }
+.pil-tab:hover { transform: translateX(4px); }
+.pil-tab .pn { color: var(--green); font-weight: 700; min-width: 1.6em; }
+.pil-tab[aria-selected="true"] { background: var(--green); border-color: var(--ink); }
+.pil-tab[aria-selected="true"] .pn { color: var(--ink); }
+.pil-tab:focus-visible, .pil-nav .btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.pil-panel { position: relative; background: #fff; border-radius: calc(var(--radius) + 4px); padding: clamp(1.5rem, 4vw, 3rem); box-shadow: 0 14px 40px rgba(27, 27, 27, .1); display: grid; gap: 1.2rem; align-content: start; overflow: hidden; animation: pilIn .35s ease; }
+.pil-num { position: absolute; right: 1.2rem; top: -.4rem; font-size: clamp(5rem, 12vw, 9rem); font-weight: 300; line-height: 1; color: var(--green); opacity: .35; letter-spacing: -.04em; }
+.pil-panel h4 { position: relative; margin: 0; padding-right: 30%; font-size: clamp(1.6rem, 3vw, 2.3rem); font-weight: 400; line-height: 1.15; }
+.pil-row { position: relative; border-top: 1px solid rgba(27, 27, 27, .12); padding-top: 1rem; }
+.pil-row .g-tag { margin-bottom: .4rem; }
+.pil-row p { margin: 0; font-weight: 300; font-size: 1.1rem; line-height: 1.7; max-width: 36em; }
+.pil-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: .4rem; }
+.pil-count { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+@keyframes pilIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* hero: white text */
+.gl-hero-inner.solo { grid-template-columns: minmax(0, 1fr); }
+.gl-hero h1, .gl-hero .lead, .gl-hero .eyebrow { color: #fff; text-shadow: 0 2px 14px rgba(27, 27, 27, .28); }
+.gl-hero .eyebrow::before { background: #fff; }
+.gl-hero .btn { background: #fff; color: var(--ink); border-color: #fff; text-shadow: none; }
+.gl-hero .btn:hover { background: var(--cream); }
 
 /* logo studio */
 .logo-art { width: var(--w, 100%); aspect-ratio: var(--ar); background-color: var(--lc, var(--green)); -webkit-mask: var(--mask) center / contain no-repeat; mask: var(--mask) center / contain no-repeat; }
@@ -202,6 +217,7 @@
 
 @media (max-width: 1000px) {
   .studio, .tex-lab, .exp-panel, .g-split { grid-template-columns: minmax(0, 1fr); }
+  .pillars { grid-template-columns: minmax(0, 1fr); }
   .seven { grid-template-columns: repeat(4, 1fr); }
   .swatches { grid-template-columns: repeat(2, 1fr); }
   .misuse { grid-template-columns: repeat(2, 1fr); }
@@ -210,6 +226,10 @@
   .studio-stage { min-height: 340px; }
 }
 @media (max-width: 700px) {
+  .pillars { grid-template-columns: minmax(0, 1fr); }
+  .pil-tabs { display: flex; overflow-x: auto; gap: .5rem; padding-bottom: .4rem; }
+  .pil-tab { flex: 0 0 auto; width: auto; font-size: .95rem; white-space: nowrap; }
+  .pil-panel h4 { padding-right: 22%; }
   .g-head { grid-template-columns: 1fr; }
   .g-num { grid-row: auto; margin-bottom: 1rem; }
   .seven { grid-template-columns: repeat(2, 1fr); }
