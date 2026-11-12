@@ -17,7 +17,7 @@ html:has(.scenes) { scroll-snap-type: y proximity; scroll-padding-top: var(--hea
 .scene-in.wide .scene-head .kicker { grid-column: 1 / -1; }
 .scene-in.wide .scene-head h2 { grid-column: 1; }
 .scene-in.wide .scene-head p:not(.kicker) { grid-column: 2; margin: 0; }
-.scene-in.solo { grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); }
+.scene-in.solo { grid-template-columns: minmax(0, 1fr); }
 .kicker { margin: 0 0 1rem; font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; display: flex; align-items: center; gap: .8rem; }
 .kicker::before { content: ""; width: 34px; height: 4px; background: currentColor; }
 .scene h2 { margin: 0 0 1rem; font-size: clamp(2.3rem, 5.4vw, 5rem); font-weight: 400; line-height: 1.02; letter-spacing: -.03em; }
@@ -151,7 +151,7 @@ input[type=range] { accent-color: var(--ink); cursor: pointer; }
 .rules li::before { content: counter(r); position: absolute; left: 0; top: .5rem; width: 1.6rem; height: 1.6rem; display: grid; place-items: center; border-radius: 50%; background: #c4442d; color: #fff; font-size: .75rem; font-weight: 700; }
 
 /* ---- color ---- */
-.swatches { display: flex; height: clamp(180px, 27vh, 300px); border: var(--edge); border-radius: var(--r); overflow: hidden; box-shadow: 6px 6px 0 var(--ink); margin-bottom: clamp(1.25rem, 3vh, 2rem); }
+.swatches { display: flex; height: clamp(280px, 52vh, 480px); border: var(--edge); border-radius: var(--r); overflow: hidden; box-shadow: 6px 6px 0 var(--ink); margin-bottom: clamp(1.25rem, 3vh, 2rem); }
 .swatch { position: relative; flex: 1 1 0; display: flex; flex-direction: column; text-align: left; font: inherit; border: 0; border-right: var(--edge); padding: 0; background: #fff; cursor: pointer; transition: flex-grow .4s; }
 .swatch:last-child { border-right: 0; }
 .swatch:hover, .swatch:focus-visible { flex-grow: 1.7; }

@@ -201,35 +201,6 @@
     sw.appendChild(b);
   });
 
-  var BGS = [['Light cream', LIGHT], ['Cream', CREAM], ['Green', GREEN], ['Ink', INK]];
-  var FGS = [['Ink', INK], ['Green', GREEN], ['Cream', CREAM]];
-  var cg = $('contrast-grid'), cp = $('contrast-preview'), selected = null;
-  cg.appendChild(el('span', 'cg-h', 'Text \\ Bg'));
-  BGS.forEach(function (b) { cg.appendChild(el('span', 'cg-h', b[0])); });
-  FGS.forEach(function (f) {
-    cg.appendChild(el('span', 'cg-h', f[0]));
-    BGS.forEach(function (b) {
-      var c = el('button', 'cg-cell'); c.type = 'button';
-      c.style.setProperty('--bg', b[1]); c.style.setProperty('--fg', f[1]);
-      if (f[1] === b[1]) { c.className += ' na'; c.disabled = true; c.innerHTML = '—'; }
-      else {
-        var r = ratio(f[1], b[1]);
-        c.innerHTML = r.toFixed(1) + ':1<small>' + grade(r) + '</small>';
-        c.setAttribute('aria-pressed', 'false'); c.setAttribute('aria-label', f[0] + ' text on ' + b[0] + ': ' + r.toFixed(1) + ' to 1, ' + grade(r));
-        c.addEventListener('click', function () { pick(c, f, b, r); });
-        if (f[0] === 'Ink' && b[0] === 'Green') selected = [c, f, b, r];
-      }
-      cg.appendChild(c);
-    });
-  });
-  function pick(c, f, b, r) {
-    Array.prototype.forEach.call(cg.querySelectorAll('.cg-cell'), function (x) { x.setAttribute('aria-pressed', 'false'); });
-    c.setAttribute('aria-pressed', 'true');
-    cp.style.setProperty('--bg', b[1]); cp.style.setProperty('--fg', f[1]);
-    cp.innerHTML = '<p class="ratio">' + f[0] + ' on ' + b[0] + ' · ' + r.toFixed(2) + ':1 · ' + grade(r) + '</p><p class="big">Fresh from the cane.</p><p>Refreshing by nature. Freshly pressed sugarcane juice, brought closer to everyday life.</p>';
-  }
-  if (selected) pick.apply(null, selected);
-
   /* ---------- type tester ---------- */
   var W = [['Light', 300, 'Body text'], ['Regular', 400, 'Headlines'], ['Medium', 500, 'Subheadings and flavor names']];
   var wt = $('weight-tabs'), ts = $('type-sample'), tz = $('type-size'), tzo = $('type-size-out');
@@ -307,61 +278,10 @@
     Array.prototype.forEach.call(seven.querySelectorAll('button'), function (b, k) { b.setAttribute('aria-pressed', String(k === i)); });
     var html = '<h4>' + p.n + ' — ' + p.t + '</h4><p>' + p.d + '</p>';
     if (p.body) html += '<ul>' + p.body.split('\n').map(function (l) { return '<li>' + l + '</li>'; }).join('') + '</ul>';
-    else html += '<p>You fill this in for each project. Use the prompt builder below.</p>';
+    else html += '<p>You write this part fresh for every project.</p>';
     sd.innerHTML = html;
   }
   showPart(0);
-
-  /* ---------- prompt builder ---------- */
-  var FIELDS = [
-    { n: '05', t: 'Project Brief', q: [['What are we creating?', 'e.g. A poster announcing a new lime and mint flavor'], ['Who is it for?', 'e.g. Students and young professionals'], ['Where will it be used?', 'e.g. In-store, at the entrance'], ['What information must appear?', 'e.g. Flavor name, tagline, logo'], ['What references or constraints apply?', 'e.g. Use the storefront photo as a reference']] },
-    { n: '06', t: 'Visual Direction', q: [['Layout and focal point', 'e.g. Bottle centered, logo top left'], ['Camera angle and lighting', 'e.g. Low angle, soft morning light'], ['People, materials and setting', 'e.g. Ridged green surface, no people'], ['Which reference details must remain exact?', 'e.g. Bottle proportions and ridge texture'], ['Which parts can change?', 'e.g. Background color and composition']] },
-    { n: '07', t: 'Output and Delivery', q: [['Dimensions and orientation', 'e.g. 1080 × 1350 px, portrait'], ['File format', 'e.g. PNG'], ['Number of outputs', 'e.g. Three variations'], ['Concept image, editable artwork or final layout?', 'e.g. Concept image'], ['What needs a physical sample or production review?', 'e.g. Nothing, digital only']] }
-  ];
-  var grid = $('b-grid'), inputs = [], KEY = 'gana-prompt-v1';
-  var saved = {}; try { saved = JSON.parse(store(KEY) || '{}') || {}; } catch (e) { saved = {}; }
-  FIELDS.forEach(function (f, fi) {
-    var col = el('div', 'b-col', '<h4><span>' + f.n + '</span>' + f.t + '</h4>');
-    f.q.forEach(function (q, qi) {
-      var id = 'b-' + fi + '-' + qi, lab = el('label'); lab.htmlFor = id;
-      lab.appendChild(document.createTextNode(q[0]));
-      var ta = el('textarea'); ta.id = id; ta.rows = 2; ta.placeholder = q[1]; ta.value = saved[id] || '';
-      ta.addEventListener('input', update); lab.appendChild(ta); col.appendChild(lab);
-      inputs.push({ id: id, ta: ta, part: f, q: q[0] });
-    });
-    grid.appendChild(col);
-  });
-  function answers() {
-    var out = [];
-    FIELDS.forEach(function (f) {
-      var lines = inputs.filter(function (x) { return x.part === f && x.ta.value.trim(); }).map(function (x) { return '- ' + x.q + ' ' + x.ta.value.trim(); });
-      if (lines.length) out.push(f.n + ' — ' + f.t + '\n' + lines.join('\n'));
-    });
-    return out.join('\n\n');
-  }
-  function fullPrompt() {
-    var perm = PARTS.slice(0, 4).map(function (p) { return p.n + ' — ' + p.t + '\n' + p.body; }).join('\n\n');
-    var parts = FIELDS.map(function (f) {
-      var lines = inputs.filter(function (x) { return x.part === f; }).map(function (x) { return '- ' + x.q + ' ' + (x.ta.value.trim() || '[not yet defined]'); });
-      return f.n + ' — ' + f.t + '\n' + lines.join('\n');
-    }).join('\n\n');
-    return 'You are helping create work for GANA, a fresh sugarcane juice brand. Follow these permanent brand rules, then the project details.\n\n' + perm + '\n\n' + parts;
-  }
-  function update() {
-    var n = inputs.filter(function (x) { return x.ta.value.trim(); }).length, o = {};
-    inputs.forEach(function (x) { if (x.ta.value) o[x.id] = x.ta.value; });
-    store(KEY, JSON.stringify(o));
-    $('b-count').textContent = n; $('b-bar').style.width = (n / inputs.length * 100) + '%';
-    $('b-pre').textContent = fullPrompt();
-  }
-  function status(t) { var s = $('b-status'); s.textContent = t; setTimeout(function () { s.textContent = ''; }, 2000); }
-  $('b-copy').addEventListener('click', function () { copy(fullPrompt(), function (ok) { status(ok ? 'Full prompt copied' : 'Copy failed: select the preview text'); }); });
-  $('b-copy-ans').addEventListener('click', function () {
-    var a = answers(); if (!a) { status('Nothing answered yet'); return; }
-    copy(a, function (ok) { status(ok ? 'Answers copied' : 'Copy failed'); });
-  });
-  $('b-clear').addEventListener('click', function () { inputs.forEach(function (x) { x.ta.value = ''; }); update(); status('Cleared'); });
-  update();
 
   /* ---------- scenes: dial, HUD, next ---------- */
   var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
