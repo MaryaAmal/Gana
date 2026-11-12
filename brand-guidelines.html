@@ -13,7 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="guide.css?v=9">
 </head>
 <body>
 
@@ -39,8 +40,8 @@
         <div class="gl-hero-copy">
           <p class="eyebrow">Brand guidelines</p>
           <h1>How GANA looks, sounds and feels.</h1>
-          <p class="lead">The complete guidebook, page by page: the brand, the logo, type, color, texture, packaging, spaces and the way we prompt AI. Scroll to read, tap any page to zoom.</p>
-          <a href="#ch-0" class="btn">Start reading</a>
+          <p class="lead">Play with the logo, copy the colors, test the type, build the texture and write on-brand prompts. Everything in the guidebook, made to be used.</p>
+          <a href="#brand" class="btn">Start exploring</a>
         </div>
         <button type="button" class="gl-hero-book" id="gl-hero-book" aria-label="Open the guidebook cover">
           <img src="Images/guidelines/spread-01.webp" width="810" height="630" alt="Guidebook cover: the cream GANA wordmark on GANA Green." fetchpriority="high">
@@ -49,14 +50,213 @@
     </section>
 
     <div class="gl-nav" id="gl-nav">
-      <nav class="gl-nav-inner" id="gl-chips" aria-label="Guideline chapters"></nav>
-      <p class="gl-now" id="gl-now" aria-live="off"></p>
+      <nav class="gl-nav-inner" id="gl-chips" aria-label="Guideline sections">
+        <a class="gl-chip" href="#brand">Brand</a>
+        <a class="gl-chip" href="#logo">Logo</a>
+        <a class="gl-chip" href="#color">Color</a>
+        <a class="gl-chip" href="#type">Type</a>
+        <a class="gl-chip" href="#texture">Texture</a>
+        <a class="gl-chip" href="#experience">Experience</a>
+        <a class="gl-chip" href="#prompt">AI Prompts</a>
+        <a class="gl-chip" href="#book">The Book</a>
+      </nav>
       <span class="gl-progress" id="gl-progress" aria-hidden="true"></span>
     </div>
 
-    <div class="gl-chapters" id="gl-chapters">
-      <noscript><p class="gl-noscript">Turn on JavaScript to read the guidebook pages.</p></noscript>
-    </div>
+    <!-- 01 BRAND -->
+    <section class="g-sec" id="brand">
+      <header class="g-head reveal"><span class="g-num" aria-hidden="true">01</span><h2>The Brand</h2><p>Fresh sugarcane juice built around freshness, wellness and sustainability, with a direct line back to the ingredient.</p></header>
+
+      <div class="g-wrap">
+        <div class="manifesto reveal">
+          <p class="eyebrow">Brand manifesto</p>
+          <p class="manifesto-big">We believe freshness begins at the source.</p>
+          <div class="manifesto-cols">
+            <p>With sugarcane grown on farms, carefully selected, and pressed for people to enjoy. We want that connection to remain visible, in the stories we share, the materials we choose, and the experiences we create.</p>
+            <p>We bring the feeling of sugarcane into your hands through texture, into our spaces through form, and into the experience through the sound of the first press.</p>
+            <p>We believe sustainability belongs in everyday decisions: where ingredients come from, how products are packaged, and what happens after the drink is finished.</p>
+          </div>
+        </div>
+
+        <div class="g-trio">
+          <article class="g-card reveal"><h3>Purpose</h3><p>To bring fresh sugarcane juice into everyday life while connecting people to its source through thoughtful design and sensory experiences.</p></article>
+          <article class="g-card reveal"><h3>Audience</h3><p>People who care about what they drink and how it is made: students, working professionals, and anyone looking for convenient refreshment, whether they already enjoy sugarcane juice or are trying it for the first time.</p></article>
+          <article class="g-card reveal"><h3>Positioning</h3><p>A fresh, contemporary beverage with an elevated yet approachable experience, from farm sourcing to sugarcane-inspired packaging and sensory design.</p></article>
+        </div>
+
+        <div class="g-split reveal">
+          <div>
+            <h3 class="g-h3">Personality</h3>
+            <div class="g-tabs" role="tablist" aria-label="Brand personality" id="trait-tabs"></div>
+            <div class="trait-panel" id="trait-panel" role="tabpanel" aria-live="polite"></div>
+          </div>
+          <div>
+            <h3 class="g-h3">Voice</h3>
+            <p class="g-note">GANA speaks in simple, warm and clear language. The tone is calm and approachable. Tap a line to see the difference.</p>
+            <ul class="voice-list" id="voice-list"></ul>
+          </div>
+        </div>
+
+        <h3 class="g-h3 reveal">Strategic pillars</h3>
+        <div class="pillars reveal" id="pillars"></div>
+      </div>
+    </section>
+
+    <!-- 02 LOGO -->
+    <section class="g-sec alt" id="logo">
+      <header class="g-head reveal"><span class="g-num" aria-hidden="true">02</span><h2>The Logo</h2><p>Rounded letterforms on a consistent grid. Always use the approved artwork, never retype it.</p></header>
+
+      <div class="g-wrap">
+        <div class="studio reveal">
+          <div class="studio-stage" id="studio-stage" data-bg="cream">
+            <div class="logo-art" id="studio-logo" role="img" aria-label="GANA logo preview"></div>
+            <p class="studio-warn" id="studio-warn" hidden></p>
+          </div>
+          <div class="studio-controls">
+            <fieldset><legend>Arrangement</legend><div class="g-tabs" id="arr-tabs"></div><p class="g-note" id="arr-note"></p></fieldset>
+            <fieldset><legend>Background</legend><div class="swatch-row" id="bg-row"></div></fieldset>
+            <fieldset><legend>Logo color</legend><div class="swatch-row" id="lc-row"></div><p class="g-note" id="lc-note"></p></fieldset>
+          </div>
+        </div>
+
+        <div class="g-split reveal">
+          <div class="g-card tall">
+            <h3>Construction and grid</h3>
+            <div class="constr" id="constr">
+              <div class="logo-art ink" id="constr-solid" style="--ar:960/323;--mask:url(Images/brand/logo-horizontal.png)"></div>
+              <img src="Images/brand/logo-construction.png" alt="The GANA logo over its modular construction grid." id="constr-grid" width="1400" height="477">
+            </div>
+            <button type="button" class="btn btn-ghost btn-small" id="constr-btn" aria-pressed="false">Show construction</button>
+            <p>The logo uses a modular grid to organize the letters. Shared alignments, spacing and corner treatments connect every arrangement. The construction grid is a reference for understanding the logo and should not appear in everyday brand applications.</p>
+          </div>
+          <div class="g-card tall">
+            <h3>Clear space</h3>
+            <div class="clear-stage"><div class="clear-box" id="clear-box"><div class="logo-art" id="clear-logo" style="--ar:960/323;--mask:url(Images/brand/logo-horizontal.png);--lc:var(--green)"></div></div></div>
+            <div class="clear-controls">
+              <label>Size <input type="range" id="clear-size" min="120" max="360" value="260" aria-label="Logo size"></label>
+              <button type="button" class="btn btn-ghost btn-small" id="clear-btn" aria-pressed="true">Hide clear space</button>
+            </div>
+            <p>Keep an open area around every arrangement equal to one letter width. Text, images, borders and other elements stay outside it. Measure from the outermost edges of the complete arrangement, and scale it with the logo.</p>
+          </div>
+        </div>
+
+        <h3 class="g-h3 reveal">Incorrect logo use</h3>
+        <p class="g-note reveal">Consistency depends on preserving the approved artwork.</p>
+        <div class="misuse reveal" id="misuse"></div>
+        <ul class="rules reveal">
+          <li>Do not stretch, compress, rotate, or skew the logo.</li>
+          <li>Do not change the letterforms or their rounded corners.</li>
+          <li>Do not alter spacing within an approved arrangement.</li>
+          <li>Do not create additional letter arrangements.</li>
+          <li>Do not recreate the wordmark using Manrope or another typeface.</li>
+          <li>Do not apply unapproved colors, outlines, shadows, or effects.</li>
+          <li>Do not place the logo on a background that obscures its shape.</li>
+          <li>Do not crop the logo or place other elements inside its clear space.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 COLOR -->
+    <section class="g-sec" id="color">
+      <header class="g-head reveal"><span class="g-num" aria-hidden="true">03</span><h2>Color</h2><p>Sugarcane green and a warm cream. Tap a swatch to copy its HEX value.</p></header>
+      <div class="g-wrap">
+        <div class="swatches reveal" id="swatches"></div>
+        <div class="g-split reveal">
+          <div>
+            <h3 class="g-h3">Contrast checker</h3>
+            <p class="g-note">WCAG contrast for text on each background. Tap a cell to preview the pairing. The logo itself is artwork: cream on green and green on cream are both approved for the wordmark.</p>
+            <div class="contrast-grid" id="contrast-grid"></div>
+          </div>
+          <div class="contrast-preview" id="contrast-preview" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 TYPE -->
+    <section class="g-sec alt" id="type">
+      <header class="g-head reveal"><span class="g-num" aria-hidden="true">04</span><h2>Typography</h2><p>Gotham supports the rounded wordmark with structure and clarity. Type your own text below.</p></header>
+      <div class="g-wrap">
+        <div class="type-tester reveal">
+          <div class="type-controls">
+            <div class="g-tabs" id="weight-tabs" role="group" aria-label="Weight"></div>
+            <label class="size-label">Size <input type="range" id="type-size" min="20" max="120" value="72" aria-label="Type size"><output id="type-size-out">72 px</output></label>
+          </div>
+          <div class="type-sample" id="type-sample" contenteditable="true" spellcheck="false" role="textbox" aria-label="Editable type sample">Fresh from the cane.</div>
+          <p class="g-note" id="type-note"></p>
+        </div>
+        <div class="hier reveal">
+          <article><span class="g-tag">Headlines · Gotham Regular</span><p class="h-reg">Refreshing by nature.</p><p class="g-note">Main messages, campaign statements and page titles.</p></article>
+          <article><span class="g-tag">Subheadings and flavor names · Gotham Medium</span><p class="h-med">Pure Sugarcane · Lime &amp; Mint</p><p class="g-note">Section headings, product names and supporting emphasis.</p></article>
+          <article><span class="g-tag">Body text · Gotham Light</span><p class="h-light">Freshly pressed sugarcane juice, brought closer to everyday life through thoughtful packaging, welcoming spaces and a direct connection to the ingredient.</p><p class="g-note">Product descriptions, brand information and longer passages.</p></article>
+        </div>
+        <p class="g-note reveal">This site uses Montserrat as a stand-in because Gotham is a licensed typeface. On packaging and print, use Gotham.</p>
+      </div>
+    </section>
+
+    <!-- 05 TEXTURE -->
+    <section class="g-sec" id="texture">
+      <header class="g-head reveal"><span class="g-num" aria-hidden="true">05</span><h2>Texture and Pattern</h2><p>“Feel the Cane”: raised ridges and recessed grooves, plus a pattern built from the logo forms.</p></header>
+      <div class="g-wrap">
+        <div class="tex-lab reveal">
+          <div class="tex-stage" id="tex-stage" aria-label="Ridge texture preview"></div>
+          <div class="tex-controls">
+            <label>Repeat size <input type="range" id="tex-size" min="20" max="120" value="60"><output id="tex-size-out">60 px</output></label>
+            <label>Ridge share <input type="range" id="tex-share" min="30" max="80" value="60"><output id="tex-share-out">60%</output></label>
+            <p class="g-note" id="tex-note"></p>
+            <button type="button" class="btn btn-ghost btn-small" id="tex-reset">Reset to 60 / 40</button>
+            <p>Build the texture by repeating a raised vertical ridge and a recessed groove, evenly spaced center to center. Each ridge takes 60% of one repeat and the groove the remaining 40%. When resizing, scale ridge and groove together.</p>
+          </div>
+        </div>
+        <div class="g-split reveal">
+          <figure class="g-fig"><img src="Images/gana-texture.jpg" alt="Vertical ridge texture of sugarcane." loading="lazy"><figcaption><strong>Texture.</strong> Preserve ridge widths, bridge positions and spacing. Scale the whole repeat proportionally rather than stretching elements.</figcaption></figure>
+          <figure class="g-fig"><img src="Images/gana-pattern.jpg" alt="GANA logo pattern in green and cream." loading="lazy"><figcaption><strong>Pattern.</strong> Built by repeating and connecting approved logo forms in GANA Green #99BC20 and Cream #F2E8D5. Keep the original shapes intact.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 EXPERIENCE -->
+    <section class="g-sec alt" id="experience">
+      <header class="g-head reveal"><span class="g-num" aria-hidden="true">06</span><h2>Experience</h2><p>The brand reaches beyond the screen: bottle, building, touch, sound and scent.</p></header>
+      <div class="g-wrap">
+        <div class="exp reveal">
+          <div class="g-tabs exp-tabs" id="exp-tabs" role="tablist" aria-label="Experience"></div>
+          <div class="exp-panel" id="exp-panel" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 PROMPT -->
+    <section class="g-sec" id="prompt">
+      <header class="g-head reveal"><span class="g-num" aria-hidden="true">07</span><h2>AI Prompt Guide</h2><p>Seven parts: four permanent brand rules and three that change with every project.</p></header>
+      <div class="g-wrap">
+        <ol class="seven reveal" id="seven"></ol>
+        <div class="seven-detail reveal" id="seven-detail" aria-live="polite"></div>
+
+        <div class="builder reveal">
+          <div class="builder-head">
+            <div><h3 class="g-h3">Prompt builder</h3><p class="g-note">Answer the three project parts. The permanent parts are added for you. Answers stay in this browser only.</p></div>
+            <p class="builder-count"><span id="b-count">0</span>/15 answered</p>
+          </div>
+          <div class="b-bar"><span id="b-bar"></span></div>
+          <div class="b-grid" id="b-grid"></div>
+          <div class="b-actions">
+            <button type="button" class="btn" id="b-copy">Copy full prompt</button>
+            <button type="button" class="btn btn-ghost" id="b-copy-ans">Copy answers only</button>
+            <button type="button" class="btn btn-ghost" id="b-clear">Clear</button>
+            <span class="b-status" id="b-status" role="status"></span>
+          </div>
+          <details class="b-preview"><summary>Preview the full prompt</summary><pre id="b-pre"></pre></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 BOOK -->
+    <section class="g-sec alt" id="book">
+      <header class="g-head reveal"><span class="g-num" aria-hidden="true">08</span><h2>The Original Book</h2><p>Every page of the Brand Guidelines Book. Tap a page to zoom, or read it as text.</p></header>
+      <div class="gl-chapters" id="gl-chapters">
+        <noscript><p class="gl-noscript">Turn on JavaScript to read the guidebook pages.</p></noscript>
+      </div>
+    </section>
 
   </main>
 
@@ -83,8 +283,9 @@
     </div>
   </footer>
 
-  <script src="script.js?v=7"></script>
-  <script src="guidelines-data.js?v=7"></script>
-  <script src="guidelines.js?v=7"></script>
+  <script src="script.js?v=9"></script>
+  <script src="guidelines-data.js?v=9"></script>
+  <script src="guidelines.js?v=9"></script>
+  <script src="guide.js?v=9"></script>
 </body>
 </html>

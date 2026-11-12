@@ -24,7 +24,7 @@
   function pp(p) { return p.pp.length === 2 ? 'Pages ' + p.pp[0] + '–' + p.pp[1] : (p.pp[0] === 1 ? 'Cover' : 'Page ' + p.pp[0]); }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
 
-  var root = $('gl-chapters'), chips = $('gl-chips'), now = $('gl-now'), prog = $('gl-progress');
+  var root = $('gl-chapters');
   var lb = $('gl-lb'), lbImg = $('gl-lb-img'), lbScroll = $('gl-lb-scroll'), lbTitle = $('gl-lb-title');
   var lbPrev = $('gl-lb-prev'), lbNext = $('gl-lb-next'), lbZoom = $('gl-lb-zoom'), lbClose = $('gl-lb-close');
   var cur = 0, lastFocus = null, spreadEls = [], chipEls = [], chapEls = [];
@@ -44,11 +44,7 @@
     root.appendChild(sec);
     chapEls.push(sec);
 
-    var b = el('button', 'gl-chip', k === 0 ? 'Opening' : INFO[k][0] + ' ' + INFO[k][1].replace(' Guidelines', ''));
-    b.type = 'button';
-    b.addEventListener('click', function () { sec.scrollIntoView({ behavior: smooth() }); });
-    chips.appendChild(b);
-    chipEls.push(b);
+
   });
 
   function smooth() { return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'; }
@@ -139,37 +135,6 @@
   } else {
     Array.prototype.forEach.call(reveals, function (r) { r.classList.add('visible'); });
   }
-
-  /* ---- scroll spy + progress ---- */
-  var ticking = false;
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function () {
-      ticking = false;
-      var line = 190, ci = 0, si = 0;
-      chapEls.forEach(function (c, k) { if (c.getBoundingClientRect().top <= line) ci = k; });
-      spreadEls.forEach(function (s, k) { if (s.getBoundingClientRect().top <= line + 120) si = k; });
-      chipEls.forEach(function (c, k) {
-        if (k === ci) c.setAttribute('aria-current', 'true'); else c.removeAttribute('aria-current');
-      });
-      var active = chipEls[ci];
-      if (active && active.offsetParent) {
-        var nav = chips;
-        var target = active.offsetLeft - (nav.clientWidth - active.clientWidth) / 2;
-        if (Math.abs(nav.scrollLeft - target) > 4) nav.scrollLeft = target;
-      }
-      var top = root.getBoundingClientRect().top;
-      var inside = top < 190;
-      now.textContent = inside ? pp(pages[si]) + ' · ' + (si + 1) + ' of ' + total : '';
-      var scrolled = Math.min(Math.max(190 - top, 0), root.offsetHeight - window.innerHeight + 190);
-      var span = Math.max(root.offsetHeight - window.innerHeight + 190, 1);
-      prog.style.transform = 'scaleX(' + Math.min(Math.max(scrolled / span, 0), 1) + ')';
-    });
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  onScroll();
 
   /* ---- lightbox ---- */
   function syncLightbox() {
