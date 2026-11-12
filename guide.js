@@ -117,8 +117,7 @@
     { id: 'cream', label: 'Cream', c: CREAM },
     { id: 'light', label: 'Light cream', c: LIGHT },
     { id: 'green', label: 'Green', c: GREEN },
-    { id: 'grey', label: 'Neutral', c: GREY },
-    { id: 'photo', label: 'Photo', c: 'url(Images/gana-store-interior.jpeg)', photo: true }
+    { id: 'grey', label: 'Neutral', c: GREY }
   ];
   var LC = [
     { id: 'green', label: 'GANA Green', c: GREEN, note: 'Primary: on cream or a light neutral background.' },
@@ -136,10 +135,8 @@
     var b = el('button', '', '<i style="--c:' + g.c + '"></i>' + g.label); b.type = 'button'; b.setAttribute('aria-pressed', 'false');
     b.addEventListener('click', function () {
       st.bg = i;
-      if (!g.photo) {                    // switch to an approved pairing automatically
-        var cur = LC[st.lc];
-        if (cur.id !== 'ink' && ratio(cur.c, g.c) < 1.5) st.lc = (g.id === 'green') ? 1 : 0;
-      }
+      var cur = LC[st.lc];     // switch to an approved pairing automatically
+      if (cur.id !== 'ink' && ratio(cur.c, g.c) < 1.5) st.lc = (g.id === 'green') ? 1 : 0;
       studio();
     }); bgr.appendChild(b);
   });
@@ -151,16 +148,14 @@
     var a = ARR[st.arr], g = BG[st.bg], l = LC[st.lc];
     art.style.setProperty('--mask', 'url(Images/brand/' + a.mask + '.png)');
     art.style.setProperty('--ar', a.ar); art.style.setProperty('--w', a.w); art.style.setProperty('--lc', l.c);
-    stage.style.setProperty('--bgc', g.photo ? 'transparent' : g.c);
-    stage.style.backgroundImage = g.photo ? g.c : 'none';
+    stage.style.setProperty('--bgc', g.c);
     art.setAttribute('aria-label', 'GANA logo, ' + a.label.toLowerCase() + ', ' + l.label + ' on ' + g.label);
     Array.prototype.forEach.call(at.children, function (b, k) { b.setAttribute('aria-pressed', String(k === st.arr)); });
     Array.prototype.forEach.call(bgr.children, function (b, k) { b.setAttribute('aria-pressed', String(k === st.bg)); });
     Array.prototype.forEach.call(lcr.children, function (b, k) { b.setAttribute('aria-pressed', String(k === st.lc)); });
     $('arr-note').textContent = a.note; $('lc-note').textContent = l.note;
     var msg = '';
-    if (g.photo) msg = 'On photographs, place the logo in an uncluttered area with enough contrast to keep its shape. This busy spot is not one.';
-    else { var r = ratio(l.c, g.c); if (r < 1.5) msg = 'Not approved: the logo disappears into this background. Choose a pairing where the wordmark stays clearly visible.'; }
+    { var r = ratio(l.c, g.c); if (r < 1.5) msg = 'Not approved: the logo disappears into this background. Choose a pairing where the wordmark stays clearly visible.'; }
     warn.hidden = !msg; warn.textContent = msg;
   }
   studio();
