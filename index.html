@@ -13,7 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=16">
+  <link rel="stylesheet" href="styles.css?v=22">
+  <link rel="stylesheet" href="guide.css?v=22">
 </head>
 <body>
 
@@ -32,10 +33,10 @@
     </nav>
   </header>
 
-  <main id="top">
+  <main id="top" class="scenes">
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero scene" id="home" data-label="Home">
       <figure class="hero-bg">
         <img src="Images/gana-juice-ice.jpeg" alt="Fresh green sugarcane juice with ice cubes" fetchpriority="high">
         <img class="flow" src="Images/gana-juice-ice.jpeg" alt="" aria-hidden="true">
@@ -52,250 +53,160 @@
     </section>
 
     <!-- TAGLINE -->
-    <section class="tagline">
-      <div class="tagline-text">
-        <p>Fresh from the cane.<br>Refreshing by nature.</p>
+    <section class="scene s-green" id="tagline" data-label="Tagline">
+      <div class="scene-in">
+        <header class="scene-head"><p class="kicker">GANA</p><h2>Fresh from the cane. Refreshing by nature.</h2></header>
+        <figure class="rimg reveal scene-body"><img src="Images/gana-bottles-trio.jpeg" alt="Three upright GANA bottles with a ridged, cane-like texture and water droplets, on a white background" loading="lazy"></figure>
       </div>
-      <figure class="tagline-photo">
-        <img src="Images/gana-bottles-trio.jpeg" alt="Three upright GANA bottles with a ridged, cane-like texture and water droplets, on a white background" loading="lazy">
-      </figure>
     </section>
 
     <!-- THE BRAND -->
-    <section id="story" class="section">
-      <div class="container split">
-        <figure class="split-media reveal">
-          <img src="Images/gana-bottle-hero.jpeg" alt="A GANA bottle with a ridged green surface and the GANA wordmark, against a green background" loading="lazy">
-        </figure>
-        <div class="split-text">
-          <p class="eyebrow">The brand</p>
+    <section class="scene s-cream" id="story" data-label="Brand">
+      <div class="scene-in">
+        <figure class="rimg tall reveal scene-body"><img src="Images/gana-bottle-hero.jpeg" alt="A GANA bottle with a ridged green surface and the GANA wordmark, against a green background" loading="lazy"></figure>
+        <header class="scene-head">
+          <p class="kicker">The brand</p>
           <h2>Freshly pressed sugarcane juice.</h2>
-          <p class="strong">The product focuses on freshness rather than positioning sugarcane juice as another mass-produced soft drink.</p>
-          <p>GANA is a fresh sugarcane juice brand built around freshness, wellness, and sustainability. It brings sugarcane closer to everyday life through thoughtful packaging, welcoming spaces, and a direct connection to the ingredient.</p>
-          <p>The identity takes inspiration from sugarcane itself: its green color, long vertical form, and natural texture. These qualities connect the logo, packaging, storefront, and sensory experiences, making every part feel like GANA.</p>
-        </div>
+          <p class="strong-p">The product focuses on freshness rather than positioning sugarcane juice as another mass-produced soft drink.</p>
+          <p class="lead-p">GANA is a fresh sugarcane juice brand built around freshness, wellness, and sustainability. It brings sugarcane closer to everyday life through thoughtful packaging, welcoming spaces, and a direct connection to the ingredient.</p>
+          <p class="lead-p">The identity takes inspiration from sugarcane itself: its green color, long vertical form, and natural texture. These qualities connect the logo, packaging, storefront, and sensory experiences, making every part feel like GANA.</p>
+        </header>
       </div>
     </section>
 
     <!-- MANIFESTO -->
-    <section class="section manifesto">
-      <div class="container">
-        <p class="eyebrow">Brand manifesto</p>
-        <h2 class="manifesto-title">We believe freshness begins at the source.</h2>
-        <div class="manifesto-cols">
-          <div>
-            <p>With sugarcane grown on farms, carefully selected, and pressed for people to enjoy.</p>
-            <p>We want that connection to remain visible, in the stories we share, the materials we choose, and the experiences we create.</p>
-            <p>We bring the feeling of sugarcane into your hands through texture, into our spaces through form, and into the experience through the sound of the first press.</p>
-          </div>
-          <div>
-            <p>We believe sustainability belongs in everyday decisions: where ingredients come from, how products are packaged, and what happens after the drink is finished.</p>
-            <p class="pull">GANA brings these ideas together in a simple, refreshing experience, rooted in the ingredient.</p>
-          </div>
+    <section class="scene s-light" id="manifesto" data-label="Manifesto">
+      <div class="scene-in wide">
+        <header class="scene-head"><p class="kicker">Brand manifesto</p><h2>We believe freshness begins at the source.</h2></header>
+        <div class="scene-body cols3">
+          <p>With sugarcane grown on farms, carefully selected, and pressed for people to enjoy. We want that connection to remain visible, in the stories we share, the materials we choose, and the experiences we create.</p>
+          <p>We bring the feeling of sugarcane into your hands through texture, into our spaces through form, and into the experience through the sound of the first press.</p>
+          <p>We believe sustainability belongs in everyday decisions: where ingredients come from, how products are packaged, and what happens after the drink is finished. GANA brings these ideas together in a simple, refreshing experience, rooted in the ingredient.</p>
         </div>
       </div>
     </section>
 
-    <!-- PURPOSE (pattern) -->
-    <section class="section purpose">
-      <div class="container narrow">
-        <p class="eyebrow">Our purpose</p>
-        <p class="big">To bring fresh sugarcane juice into everyday life while connecting people to its source through thoughtful design and sensory experiences.</p>
+    <!-- PURPOSE -->
+    <section class="scene pattern-scene" id="purpose" data-label="Purpose">
+      <div class="scene-in solo">
+        <div><p class="kicker" style="color:#fff">Our purpose</p><p class="big-line">To bring fresh sugarcane juice into everyday life while connecting people to its source through thoughtful design and sensory experiences.</p></div>
       </div>
     </section>
 
-    <!-- AUDIENCE + POSITIONING -->
-    <section id="who" class="section">
-      <div class="container split">
-        <div class="split-text">
-          <p class="eyebrow">Audience</p>
+    <!-- AUDIENCE -->
+    <section class="scene s-cream" id="who" data-label="Audience">
+      <div class="scene-in">
+        <header class="scene-head">
+          <p class="kicker">Audience</p>
           <h2>For people who care what they drink.</h2>
-          <p>GANA is for people who care about what they drink and how it is made. They value freshness, wellness, and more thoughtful choices in their daily routines.</p>
-          <p>This includes students, working professionals, and people looking for convenient refreshment, whether they already enjoy sugarcane juice or are trying it for the first time.</p>
-          <ul class="chips">
-            <li>Students</li>
-            <li>Working professionals</li>
-            <li>Convenient refreshment</li>
-            <li>Sugarcane fans</li>
-            <li>First-time tasters</li>
-          </ul>
-        </div>
-        <figure class="split-media reveal">
-          <img src="Images/gana-lifestyle.jpeg" alt="A smiling customer holding a GANA bottle inside the store, with a team member at the counter behind her" loading="lazy">
-        </figure>
-      </div>
-      <div class="container positioning reveal">
-        <p class="eyebrow">Positioning</p>
-        <p class="big-ink">GANA positions sugarcane juice as a fresh, contemporary beverage with an elevated yet approachable experience.</p>
-        <p>The brand brings together farm sourcing, sugarcane-inspired packaging, and sensory design. Its connection to the ingredient extends from the drink to the bottle, store, and digital experience.</p>
+          <p class="lead-p">GANA is for people who care about what they drink and how it is made. They value freshness, wellness, and more thoughtful choices in their daily routines.</p>
+          <p class="lead-p">This includes students, working professionals, and people looking for convenient refreshment, whether they already enjoy sugarcane juice or are trying it for the first time.</p>
+          <ul class="chips"><li>Students</li><li>Working professionals</li><li>Convenient refreshment</li><li>Sugarcane fans</li><li>First-time tasters</li></ul>
+        </header>
+        <figure class="rimg reveal scene-body"><img src="Images/gana-lifestyle.jpeg" alt="A smiling customer holding a GANA bottle inside the store, with a team member at the counter behind her" loading="lazy"></figure>
       </div>
     </section>
 
-    <!-- PERSONALITY + VOICE -->
-    <section id="personality" class="section cream">
-      <div class="container">
-        <p class="eyebrow">Brand personality</p>
-        <h2>How GANA shows up.</h2>
-        <div class="traits">
-          <div class="trait reveal">
-            <h3>Fresh</h3>
-            <p>Our colors, imagery, and experiences reflect the freshness of sugarcane.</p>
-          </div>
-          <div class="trait reveal">
-            <h3>Grounded</h3>
-            <p>Our identity stays connected to the ingredient, its natural qualities, and where it comes from.</p>
-          </div>
-          <div class="trait reveal">
-            <h3>Welcoming</h3>
-            <p>Our spaces and communication feel friendly, comfortable, and easy to understand.</p>
-          </div>
-          <div class="trait reveal">
-            <h3>Thoughtful</h3>
-            <p>We consider how each design decision affects the experience, from holding the bottle to understanding its packaging.</p>
-          </div>
+    <!-- POSITIONING -->
+    <section class="scene s-green" id="positioning" data-label="Positioning">
+      <div class="scene-in solo">
+        <div>
+          <p class="kicker">Positioning</p>
+          <p class="big-line" style="color:#fff;text-shadow:0 2px 14px rgba(27,27,27,.22)">GANA positions sugarcane juice as a fresh, contemporary beverage with an elevated yet approachable experience.</p>
+          <p class="lead-p" style="margin-top:1.5rem">The brand brings together farm sourcing, sugarcane-inspired packaging, and sensory design. Its connection to the ingredient extends from the drink to the bottle, store, and digital experience.</p>
         </div>
-        <div class="voice reveal">
-          <h3>Voice</h3>
-          <p>GANA speaks in simple, warm, and clear language. The tone is calm and approachable, reflecting the brand's direction toward wellness and sustainability.</p>
+      </div>
+    </section>
+
+    <!-- PERSONALITY -->
+    <section class="scene s-light" id="personality" data-label="Personality">
+      <div class="scene-in wide">
+        <header class="scene-head"><p class="kicker">Brand personality</p><h2>How GANA shows up.</h2><p>GANA speaks in simple, warm, and clear language. The tone is calm and approachable, reflecting the brand&rsquo;s direction toward wellness and sustainability.</p></header>
+        <div class="scene-body cards">
+          <article class="hcard reveal"><h3>Fresh</h3><p>Our colors, imagery, and experiences reflect the freshness of sugarcane.</p></article>
+          <article class="hcard reveal"><h3>Grounded</h3><p>Our identity stays connected to the ingredient, its natural qualities, and where it comes from.</p></article>
+          <article class="hcard reveal"><h3>Welcoming</h3><p>Our spaces and communication feel friendly, comfortable, and easy to understand.</p></article>
+          <article class="hcard reveal"><h3>Thoughtful</h3><p>We consider how each design decision affects the experience, from holding the bottle to understanding its packaging.</p></article>
         </div>
       </div>
     </section>
 
     <!-- PILLARS -->
-    <section class="section">
-      <div class="container">
-        <p class="eyebrow">Strategic pillars of the experience</p>
-        <h2>Five ideas, one fresh experience.</h2>
-        <div class="pillars">
-          <article class="card reveal">
-            <span class="num">01</span>
-            <h3>Freshness and Wellness</h3>
-            <p>Fresh sugarcane juice is at the center of GANA. The brand supports a thoughtful approach to everyday refreshment, with clear information about the product and its ingredients.</p>
-          </article>
-          <article class="card reveal">
-            <span class="num">02</span>
-            <h3>Connection to the Source</h3>
-            <p>The farm story connects the finished drink to where it begins. Named farm sourcing and stories about the ingredient help make this connection specific and understandable.</p>
-          </article>
-          <article class="card reveal">
-            <span class="num">03</span>
-            <h3>Sustainability in Practice</h3>
-            <p>Sustainability guides choices across sourcing, packaging, and disposal. The focus is on practical material choices, reducing unnecessary packaging, and considering what happens after the drink is finished.</p>
-          </article>
-          <article class="card reveal">
-            <span class="num">04</span>
-            <h3>Sensory Connection</h3>
-            <p>Sugarcane shapes how people experience GANA. &ldquo;Feel the Cane&rdquo; brings its texture into the packaging and physical environment. &ldquo;First Press&rdquo; connects the sound of preparation to the product. Scent and taste extend the experience within the store.</p>
-          </article>
-          <article class="card reveal">
-            <span class="num">05</span>
-            <h3>A Flexible, Recognizable Identity</h3>
-            <p>GANA remains recognizable through its logo, core typography, core colors, and graphic language. These elements support variation across flavors, locations, seasons, and applications while keeping the brand connected.</p>
-          </article>
-          <div class="card card-pattern reveal" aria-hidden="true"></div>
+    <section class="scene s-cream" id="pillars" data-label="Pillars">
+      <div class="scene-in wide">
+        <header class="scene-head"><p class="kicker">Strategic pillars</p><h2>Five ideas, one fresh experience.</h2></header>
+        <div class="scene-body cards five">
+          <article class="hcard reveal"><span class="num">01</span><h3>Freshness and Wellness</h3><p>Fresh sugarcane juice is at the center of GANA, with a thoughtful approach to everyday refreshment and clear information about the ingredients.</p></article>
+          <article class="hcard reveal"><span class="num">02</span><h3>Connection to the Source</h3><p>The farm story connects the finished drink to where it begins, through named farm sourcing and stories about the ingredient.</p></article>
+          <article class="hcard reveal"><span class="num">03</span><h3>Sustainability in Practice</h3><p>Practical choices across sourcing, packaging, and disposal, reducing unnecessary packaging and considering what happens after the drink.</p></article>
+          <article class="hcard reveal"><span class="num">04</span><h3>Sensory Connection</h3><p>&ldquo;Feel the Cane&rdquo; brings texture into packaging and spaces, &ldquo;First Press&rdquo; the sound of preparation, plus scent and taste in store.</p></article>
+          <article class="hcard reveal"><span class="num">05</span><h3>A Flexible, Recognizable Identity</h3><p>Logo, typography, colors, and graphic language keep GANA recognizable across flavors, locations, seasons, and applications.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section experience">
-      <div class="container">
-        <p class="eyebrow">The experience</p>
-        <h2>Feel it. Hear it. Taste it.</h2>
-
-        <div class="feature reveal">
-          <div class="feature-media">
-            <img src="Images/gana-bottle-studio.jpeg" alt="A GANA bottle standing on a marble surface in warm sunlight, with the wordmark in silver" loading="lazy">
-          </div>
-          <div class="feature-text">
-            <h3>Packaging</h3>
-            <p>Packaging brings &ldquo;Feel the Cane&rdquo; directly into people's hands. The tall cylindrical bottle and its raised texture translate the form and surface of sugarcane into an everyday object.</p>
-            <p>A uniform diameter, a flush cap of the same diameter, and softly chamfered edges keep the bottle recognizable, with the silver GANA wordmark and clear product information.</p>
-          </div>
-        </div>
-
-        <div class="feature flip reveal">
-          <div class="feature-media">
-            <img src="Images/gana-door-handle.jpeg" alt="A hand pulling a ridged green GANA door handle at the store entrance" loading="lazy">
-          </div>
-          <div class="feature-text">
-            <h3>Feel the Cane</h3>
-            <p>&ldquo;Feel the Cane&rdquo; is GANA's main tactile expression. The texture helps people recognize the brand through physical contact as well as appearance.</p>
-            <p>The bottle is the primary point of contact. Counters, door handles, carriers, and selected surfaces extend the same idea into the wider experience.</p>
-          </div>
-        </div>
-
-        <div class="feature reveal">
-          <div class="feature-media">
-            <img src="Images/gana-first-press.jpeg" alt="A GANA team member in a GANA apron pouring freshly pressed sugarcane juice from the press into a glass" loading="lazy">
-          </div>
-          <div class="feature-text">
-            <h3>First Press</h3>
-            <p>&ldquo;First Press&rdquo; connects the sound of preparation to the product. Cane goes in, juice comes out, and you watch it happen, so the connection between the ingredient and the drink stays visible.</p>
-          </div>
-        </div>
-
-        <div class="feature flip reveal">
-          <div class="feature-media">
-            <img src="Images/gana-scent-diffuser.jpeg" alt="A green ridged GANA diffuser releasing a soft mist of scent in the store, with a team member preparing drinks behind it" loading="lazy">
-          </div>
-          <div class="feature-text">
-            <h3>Scent &amp; taste</h3>
-            <p>Scent supports the connection to the ingredient and the freshness of the store experience. A floor-standing diffuser in GANA Green sits near the service area, kept subtle so it rests comfortably alongside the aroma of preparation and the drink itself.</p>
-          </div>
+    <!-- EXPERIENCE 1 -->
+    <section class="scene s-green" id="experience" data-label="Packaging">
+      <div class="scene-in wide">
+        <header class="scene-head"><p class="kicker">The experience</p><h2>Feel it.</h2></header>
+        <div class="scene-body cards two">
+          <article class="fcard reveal"><img src="Images/gana-bottle-studio.jpeg" alt="A GANA bottle standing on a marble surface in warm sunlight, with the wordmark in silver" loading="lazy"><div><h3>Packaging</h3><p>Packaging brings &ldquo;Feel the Cane&rdquo; directly into people&rsquo;s hands. The tall cylindrical bottle and its raised texture translate the form and surface of sugarcane into an everyday object.</p></div></article>
+          <article class="fcard reveal"><img src="Images/gana-door-handle.jpeg" alt="A hand pulling a ridged green GANA door handle at the store entrance" loading="lazy"><div><h3>Feel the Cane</h3><p>&ldquo;Feel the Cane&rdquo; is GANA&rsquo;s main tactile expression. The bottle is the primary point of contact. Counters, door handles, carriers, and selected surfaces extend the same idea.</p></div></article>
         </div>
       </div>
     </section>
 
-    <!-- TEXTURE BAND -->
-    <section class="texture-band" aria-label="The cane texture">
-      <div class="texture-card reveal">
-        <p class="eyebrow">Texture</p>
-        <h2>Inspired by the vertical ridges of sugarcane.</h2>
-        <p>Texture is a core part of GANA's identity. It connects the bottle, storefront, counter, and door handles, creating a consistent relationship between the ingredient and its surroundings.</p>
+    <!-- EXPERIENCE 2 -->
+    <section class="scene s-cream" id="press" data-label="Press & scent">
+      <div class="scene-in wide">
+        <header class="scene-head"><p class="kicker">The experience</p><h2>Hear it. Smell it. Taste it.</h2></header>
+        <div class="scene-body cards two">
+          <article class="fcard reveal"><img src="Images/gana-first-press.jpeg" alt="A GANA team member in a GANA apron pouring freshly pressed sugarcane juice from the press into a glass" loading="lazy"><div><h3>First Press</h3><p>&ldquo;First Press&rdquo; connects the sound of preparation to the product. Cane goes in, juice comes out, and you watch it happen.</p></div></article>
+          <article class="fcard reveal"><img src="Images/gana-scent-diffuser.jpeg" alt="A green ridged GANA diffuser releasing a soft mist of scent in the store, with a team member preparing drinks behind it" loading="lazy"><div><h3>Scent &amp; taste</h3><p>A floor-standing diffuser in GANA Green sits near the service area, kept subtle so it rests comfortably alongside the aroma of preparation and the drink itself.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEXTURE -->
+    <section class="scene tex-scene" id="texture" data-label="Texture" aria-label="The cane texture">
+      <div class="scene-in solo">
+        <div class="tex-card reveal"><p class="kicker">Texture</p><h2>Inspired by the vertical ridges of sugarcane.</h2><p>Texture is a core part of GANA&rsquo;s identity. It connects the bottle, storefront, counter, and door handles, creating a consistent relationship between the ingredient and its surroundings.</p></div>
       </div>
     </section>
 
     <!-- SPACES -->
-    <section class="section spaces">
-      <div class="container">
-        <p class="eyebrow">Our spaces</p>
-        <h2>Welcoming, from the street in.</h2>
-        <div class="gallery two-col">
-          <figure class="reveal">
-            <img src="Images/gana-storefront.jpeg" alt="The round, ridged green GANA storefront with the silver GANA sign above the entrance, on a tree-lined shopping street" loading="lazy">
-            <figcaption>
-              <h3>Store front</h3>
-              <p>The storefront extends the bottle's design into architecture. Vertical forms, cane-inspired texture, and the established palette create a visible connection between the product and the place.</p>
-            </figcaption>
-          </figure>
-          <figure class="reveal">
-            <img src="Images/gana-store-interior.jpeg" alt="Inside a GANA store: a curved ridged green counter with the silver GANA sign, open glass walls, and a customer being served" loading="lazy">
-            <figcaption>
-              <h3>Interior</h3>
-              <p>Interior spaces should feel fresh, welcoming, and easy to navigate, with clear ordering, preparation, and pickup areas. Textured surfaces are balanced with quieter areas so the space feels comfortable.</p>
-            </figcaption>
-          </figure>
+    <section class="scene s-light" id="spaces" data-label="Spaces">
+      <div class="scene-in wide">
+        <header class="scene-head"><p class="kicker">Our spaces</p><h2>Welcoming, from the street in.</h2></header>
+        <div class="scene-body cards two">
+          <article class="fcard reveal"><img src="Images/gana-storefront.jpeg" alt="The round, ridged green GANA storefront with the silver GANA sign above the entrance, on a tree-lined shopping street" loading="lazy"><div><h3>Store front</h3><p>The storefront extends the bottle&rsquo;s design into architecture. Vertical forms, cane-inspired texture, and the established palette create a visible connection between the product and the place.</p></div></article>
+          <article class="fcard reveal"><img src="Images/gana-store-interior.jpeg" alt="Inside a GANA store: a curved ridged green counter with the silver GANA sign, open glass walls, and a customer being served" loading="lazy"><div><h3>Interior</h3><p>Interior spaces feel fresh, welcoming, and easy to navigate, with clear ordering, preparation, and pickup areas. Textured surfaces are balanced with quieter areas.</p></div></article>
         </div>
       </div>
     </section>
 
-    <!-- BOTTLES BAND -->
-    <section class="bottles-band" aria-label="GANA bottles">
-      <img src="Images/gana-bottles-black.jpeg" alt="Two GANA bottles lying horizontally against a black background, covered in water droplets" loading="lazy">
+    <!-- BOTTLES -->
+    <section class="scene s-cream band-scene" id="bottles" data-label="Bottles" aria-label="GANA bottles">
+      <figure class="rimg reveal"><img src="Images/gana-bottles-black.jpeg" alt="Two GANA bottles lying horizontally against a black background, covered in water droplets" loading="lazy"></figure>
     </section>
 
     <!-- CTA -->
-    <section id="visit" class="section cta">
-      <div class="container narrow">
-        <img class="cta-logo" src="Images/gana-logo-cream.png" alt="GANA" loading="lazy">
-        <h2>Come taste the source.</h2>
-        <p>Store locations and ordering are coming soon. Fresh from the cane. Refreshing by nature.</p>
-        <a href="#top" class="btn">Back to the top</a>
+    <section class="scene s-green cta-scene" id="visit" data-label="Visit">
+      <div class="scene-in">
+        <div>
+          <img class="cta-logo" src="Images/gana-logo-cream.png" alt="GANA" loading="lazy">
+          <h2>Come taste the source.</h2>
+          <p>Store locations and ordering are coming soon. Fresh from the cane. Refreshing by nature.</p>
+          <a href="#top" class="btn btn-white">Back to the top</a>
+        </div>
       </div>
     </section>
 
   </main>
+
+  <nav class="dial" id="dial" aria-label="Scenes"><ol id="dial-list"></ol></nav>
+  <div class="hud" aria-hidden="true"><span id="hud-n">01</span><span class="hud-of">/ <span id="hud-t">15</span></span><span id="hud-l">Home</span></div>
+  <button type="button" class="next-btn" id="next-btn" aria-label="Next scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button>
 
   <footer class="site-footer">
     <div class="container footer-grid">
@@ -305,6 +216,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=16"></script>
+  <script src="script.js?v=22"></script>
+  <script src="scenes.js?v=22"></script>
 </body>
 </html>
