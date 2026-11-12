@@ -78,32 +78,27 @@
     ['04', 'Sensory Connection', 'Sugarcane shapes how people experience GANA.', 'Bring \u201cFeel the Cane\u201d into packaging and spaces, \u201cFirst Press\u201d into the sound of preparation, and scent and taste into the store.'],
     ['05', 'A Flexible, Recognizable Identity', 'GANA remains recognizable through its logo, core typography, core colors, and graphic language.', 'Let these elements support variation across flavors, locations, seasons, and applications while keeping the brand connected.']
   ];
-  var pl = $('pillars'), pIdx = 0;
-  var pTabs = el('div', 'pil-tabs'); pTabs.setAttribute('role', 'tablist'); pTabs.setAttribute('aria-label', 'Strategic pillars'); pTabs.setAttribute('aria-orientation', 'vertical');
-  var pPanel = el('div', 'pil-panel'); pPanel.setAttribute('role', 'tabpanel'); pPanel.setAttribute('aria-live', 'polite');
+  var pl = $('pillars'), pIdx = 0, stalkEls = [];
   pillars.forEach(function (p, i) {
-    var b = el('button', 'pil-tab', '<span class="pn">' + p[0] + '</span><span>' + p[1] + '</span>');
-    b.type = 'button'; b.setAttribute('role', 'tab'); b.id = 'pil-t' + i;
+    var s = el('div', 'stalk'); s.setAttribute('role', 'listitem');
+    var b = el('button', 'stalk-btn', '<span class="s-num">' + p[0] + '</span><span class="s-title">' + p[1] + '</span>');
+    b.type = 'button'; b.id = 'stalk-b' + i; b.setAttribute('aria-controls', 'stalk-c' + i);
+    var c = el('div', 'stalk-body', '<div class="g-tag">The idea</div><p>' + p[2] + '</p><div class="g-tag">In practice</div><p>' + p[3] + '</p>');
+    c.id = 'stalk-c' + i; c.setAttribute('role', 'region'); c.setAttribute('aria-labelledby', b.id);
     b.addEventListener('click', function () { showPillar(i); });
-    pTabs.appendChild(b);
+    b.addEventListener('keydown', function (e) {
+      var d = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ? -1 : 0;
+      if (!d) return; e.preventDefault(); showPillar(pIdx + d); stalkEls[pIdx].querySelector('button').focus();
+    });
+    s.appendChild(b); s.appendChild(c); pl.appendChild(s); stalkEls.push(s);
   });
-  pl.appendChild(pTabs); pl.appendChild(pPanel);
   function showPillar(i) {
     pIdx = (i + pillars.length) % pillars.length;
-    var p = pillars[pIdx];
-    Array.prototype.forEach.call(pTabs.children, function (b, k) { b.setAttribute('aria-selected', String(k === pIdx)); b.tabIndex = k === pIdx ? 0 : -1; });
-    pPanel.setAttribute('aria-labelledby', 'pil-t' + pIdx);
-    pPanel.innerHTML = '<span class="pil-num" aria-hidden="true">' + p[0] + '</span><h4>' + p[1] + '</h4>' +
-      '<div class="pil-row"><span class="g-tag">The idea</span><p>' + p[2] + '</p></div>' +
-      '<div class="pil-row"><span class="g-tag">In practice</span><p>' + p[3] + '</p></div>' +
-      '<div class="pil-nav"><button type="button" class="btn btn-ghost btn-small" id="pil-prev">Previous</button><span class="pil-count">' + (pIdx + 1) + ' of ' + pillars.length + '</span><button type="button" class="btn btn-ghost btn-small" id="pil-next">Next</button></div>';
-    $('pil-prev').addEventListener('click', function () { showPillar(pIdx - 1); });
-    $('pil-next').addEventListener('click', function () { showPillar(pIdx + 1); });
+    stalkEls.forEach(function (s, k) {
+      var on = k === pIdx; s.classList.toggle('open', on);
+      s.querySelector('button').setAttribute('aria-expanded', String(on));
+    });
   }
-  pTabs.addEventListener('keydown', function (e) {
-    var d = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : (e.key === 'ArrowUp' || e.key === 'ArrowLeft') ? -1 : 0;
-    if (!d) return; e.preventDefault(); showPillar(pIdx + d); pTabs.children[pIdx].focus();
-  });
   showPillar(0);
 
   /* ---------- logo studio ---------- */
@@ -368,23 +363,35 @@
   $('b-clear').addEventListener('click', function () { inputs.forEach(function (x) { x.ta.value = ''; }); update(); status('Cleared'); });
   update();
 
-  /* ---------- hero book + nav scroll spy ---------- */
-  var secs = Array.prototype.map.call(document.querySelectorAll('.g-sec'), function (s) { return s; });
-  var chips = Array.prototype.slice.call(document.querySelectorAll('#gl-chips .gl-chip'));
-  var prog = $('gl-progress'), tick = false;
-  function spy() {
-    if (tick) return; tick = true;
-    requestAnimationFrame(function () {
-      tick = false; var ci = -1;
-      secs.forEach(function (s, k) { if (s.getBoundingClientRect().top <= 200) ci = k; });
-      chips.forEach(function (c, k) { if (k === ci) c.setAttribute('aria-current', 'true'); else c.removeAttribute('aria-current'); });
-      if (ci >= 0 && chips[ci].offsetParent) {
-        var nav = $('gl-chips'), target = chips[ci].offsetLeft - (nav.clientWidth - chips[ci].clientWidth) / 2;
-        if (Math.abs(nav.scrollLeft - target) > 4) nav.scrollLeft = target;
-      }
-      var first = secs[0].getBoundingClientRect().top, span = Math.max(secs[0].offsetTop - 0 + document.documentElement.scrollHeight - secs[0].offsetTop - window.innerHeight, 1);
-      prog.style.transform = 'scaleX(' + Math.min(Math.max((200 - first) / span, 0), 1) + ')';
-    });
+  /* ---------- scenes: dial, HUD, next ---------- */
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
+  var dl = $('dial-list'), hn = $('hud-n'), hl = $('hud-l'), nb = $('next-btn'), cur = 0, dots = [];
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $('hud-t').textContent = pad2(scenes.length);
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  scenes.forEach(function (s, i) {
+    var li = el('li'), b = el('button', '', '<span class="d-label">' + s.dataset.label + '</span>');
+    b.type = 'button'; b.setAttribute('aria-label', 'Go to scene ' + (i + 1) + ': ' + s.dataset.label.replace(/&rsquo;/g, '\u2019'));
+    b.addEventListener('click', function () { s.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); });
+    li.appendChild(b); dl.appendChild(li); dots.push(b);
+  });
+  function setScene(i) {
+    cur = i;
+    dots.forEach(function (d, k) { if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); });
+    hn.textContent = pad2(i + 1); hl.innerHTML = scenes[i].dataset.label;
+    document.body.setAttribute('data-scene-tone', scenes[i].className.match(/s-(\w+)/)[1]);
+    nb.classList.toggle('last', i === scenes.length - 1);
+    nb.setAttribute('aria-label', i === scenes.length - 1 ? 'Back to the first scene' : 'Next scene');
   }
-  window.addEventListener('scroll', spy, { passive: true }); window.addEventListener('resize', spy); spy();
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) setScene(scenes.indexOf(e.target)); });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    scenes.forEach(function (s) { so.observe(s); });
+  }
+  nb.addEventListener('click', function () {
+    var t = scenes[cur === scenes.length - 1 ? 0 : cur + 1];
+    t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  });
+  setScene(0);
 })();
