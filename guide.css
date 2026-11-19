@@ -577,3 +577,26 @@ body.sub .cascade-only { min-height: 100svh; }
 .mv-t { margin: 1.5rem 0 0; font-size: clamp(1.4rem, 2.6vw, 2.4rem); line-height: 1.2; letter-spacing: -.02em; font-weight: 400; }
 @media (max-width: 900px) { .who, .diff, .mv { grid-template-columns: 1fr; } }
 .mv-card { justify-content: flex-start; }
+/* Logo studio: full screen */
+.studio-full { padding: 0 !important; position: relative; }
+.studio-full .studio-stage { position: absolute; inset: 0; min-height: 0; border: 0; border-radius: 0; box-shadow: none; padding: 0 0 clamp(150px, 24vh, 230px); }
+.studio-full .studio-stage .logo-art { max-height: none; }
+.studio-full .studio-warn { bottom: auto; top: clamp(80px, 13vh, 120px); left: 50%; right: auto; transform: translateX(-50%); width: max-content; max-width: 80vw; }
+.studio-title { position: absolute; z-index: 3; left: clamp(1rem, 3vw, 2.5rem); top: clamp(1rem, 3vh, 2rem); background: #F2E8D5; border-radius: 28px; padding: 1rem 1.6rem 1.2rem; box-shadow: 0 12px 30px rgba(27,27,27,.15); }
+.studio-title h2 { font-size: clamp(1.6rem, 3vw, 2.6rem); margin: .2rem 0 0; font-weight: 400; letter-spacing: -.03em; }
+.studio-full .studio-controls { position: absolute; z-index: 3; left: 50%; transform: translateX(-50%); bottom: clamp(70px, 10vh, 100px); width: min(1120px, calc(100% - 2rem)); grid-template-columns: 1.3fr 1fr 1fr; gap: 1.2rem 2rem; border-radius: 28px; padding: 1.2rem 1.6rem; box-shadow: 0 18px 44px rgba(27,27,27,.22); }
+.studio-full .studio-controls .g-note { font-size: .82rem; }
+@media (max-width: 900px) { .studio-full .studio-controls { grid-template-columns: 1fr; bottom: 62px; max-height: 52svh; overflow: auto; padding: .9rem 1rem; gap: .7rem; } .studio-full .studio-stage { padding-bottom: 52svh; } .studio-title { padding: .6rem 1rem .8rem; } }
+.studio-title, .studio-title h2 { color: var(--ink); }
+.studio-title .kicker { color: #5b7a00; }
+.studio-full .studio-stage { padding-bottom: clamp(260px, 40vh, 360px); }
+.studio-full .studio-controls { bottom: clamp(64px, 9vh, 90px); }
+@media (max-width: 900px) {
+  .studio-full .studio-controls { max-height: 40svh; bottom: 60px; padding: .7rem .9rem; gap: .5rem; }
+  .studio-full .studio-controls .g-note { display: none; }
+  .studio-full .studio-controls legend { margin-bottom: .35rem; }
+  .studio-full .studio-controls .g-tabs button, .studio-full .studio-controls .swatch-row button { padding: .35rem .7rem; font-size: .8rem; }
+  .studio-full .studio-stage { padding-bottom: 46svh; padding-top: 70px; }
+  .studio-full .studio-stage .logo-art { transform: scale(.7); }
+  .studio-title { padding: .45rem .9rem .6rem; }
+}

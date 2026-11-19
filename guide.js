@@ -99,10 +99,10 @@
 
   /* ---------- logo studio ---------- */
   var ARR = [
-    { id: 'horizontal', label: 'Horizontal', mask: 'logo-horizontal', ar: '960/323', w: 'min(100%, 560px)', note: 'The complete wordmark reads across one line. Use for storefront signage, website headers and wide layouts.' },
-    { id: 'vertical', label: 'Vertical', mask: 'logo-vertical', ar: '327/957', w: '110px', note: 'The approved vertical composition fits narrow, upright spaces. Use for bottle packaging and vertical signage.' },
-    { id: 'stack', label: 'Two-line stack', mask: 'logo-stack', ar: '478/693', w: '230px', note: 'The wordmark divided into the approved GA / NA composition. Use for square labels, stickers and social media.' },
-    { id: 'spatial', label: 'Spatial composition', mask: 'logo-spatial', ar: '787/747', w: '300px', note: 'The letters occupy a more open arrangement within the grid. Use for editorial layouts, campaigns and motion.' }
+    { id: 'horizontal', label: 'Horizontal', mask: 'logo-horizontal', ar: '960/323', w: 'min(80vw, 1000px)', note: 'The complete wordmark reads across one line. Use for storefront signage, website headers and wide layouts.' },
+    { id: 'vertical', label: 'Vertical', mask: 'logo-vertical', ar: '327/957', w: '15vh', note: 'The approved vertical composition fits narrow, upright spaces. Use for bottle packaging and vertical signage.' },
+    { id: 'stack', label: 'Two-line stack', mask: 'logo-stack', ar: '478/693', w: '30vh', note: 'The wordmark divided into the approved GA / NA composition. Use for square labels, stickers and social media.' },
+    { id: 'spatial', label: 'Spatial composition', mask: 'logo-spatial', ar: '787/747', w: '40vh', note: 'The letters occupy a more open arrangement within the grid. Use for editorial layouts, campaigns and motion.' }
   ];
   var BG = [
     { id: 'cream', label: 'Cream', c: CREAM },
