@@ -550,3 +550,30 @@ body.sub .cascade-only { min-height: 100svh; }
 .h-nav a[aria-current="page"] { background: #1b1b1b; color: #F2E8D5; opacity: 1; }
 .h-nav a { white-space: nowrap; }
 @media (max-width: 600px) { .h-nav { right: 8px; gap: 0; } .h-nav a { font-size: .68rem; padding: 9px 7px; } .h-nav .h-pill { padding: 9px 12px; } }
+/* Guidelines restructure */
+.scroll-cue { position: absolute; left: 50%; bottom: clamp(28px, 6svh, 56px); transform: translateX(-50%); z-index: 3; display: grid; justify-items: center; gap: .55rem; color: #fff; font-weight: 500; font-size: 1rem; letter-spacing: .22em; text-transform: uppercase; text-shadow: 0 2px 18px rgba(27,27,27,.4); pointer-events: none; }
+.scroll-cue i { width: 14px; height: 14px; border-right: 3px solid #fff; border-bottom: 3px solid #fff; transform: rotate(45deg); animation: cuebob 1.6s ease-in-out infinite; }
+@keyframes cuebob { 0%,100% { transform: translateY(0) rotate(45deg); opacity: .6; } 50% { transform: translateY(8px) rotate(45deg); opacity: 1; } }
+.manifesto-close { font-size: clamp(1.3rem, 2.4vw, 2rem); font-weight: 500; letter-spacing: -.01em; margin: clamp(1rem, 3vh, 2rem) 0 0; max-width: 28em; }
+.solo-panel { max-width: 1000px; }
+.tex-fig img { height: clamp(220px, 34vh, 380px); width: 100%; object-fit: cover; }
+.pat-fig { display: block; margin: 0; }
+.pat-fig img { width: 100%; height: clamp(320px, 62vh, 640px); object-fit: cover; display: block; border-radius: var(--r); box-shadow: 0 24px 48px rgba(27,27,27,.2); border: var(--edge); }
+.scroll-cue { color: var(--ink); text-shadow: none; background: #F2E8D5; padding: .8rem 1.5rem .7rem; border-radius: 999px; box-shadow: 0 10px 28px rgba(27,27,27,.18); font-size: .85rem; gap: .3rem; }
+.scroll-cue i { border-color: var(--ink); width: 11px; height: 11px; margin-top: -2px; }
+.solo-panel { margin-inline: auto; width: 100%; }
+/* About page sections */
+.big-h { font-size: clamp(3rem, 8vw, 8rem) !important; line-height: .96; letter-spacing: -.04em; font-weight: 400; max-width: 12em; margin: .6rem 0 1.6rem; }
+.big-sub { font-size: clamp(1.1rem, 1.7vw, 1.5rem); font-weight: 300; line-height: 1.5; max-width: 34em; }
+.who, .diff { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 2rem); }
+.who-card, .diff-card { background: #fff; border: var(--edge); border-radius: var(--r); padding: clamp(1.4rem, 2.6vw, 2.4rem); box-shadow: 0 18px 40px rgba(27,27,27,.1); }
+.who-card span { display: inline-block; font-weight: 700; font-size: .8rem; letter-spacing: .12em; padding: .3rem .7rem; border-radius: 999px; background: var(--green); margin-bottom: 1rem; }
+.who-card h3, .diff-card h3 { font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 400; letter-spacing: -.02em; margin: 0 0 .7rem; }
+.who-card p, .diff-card p { margin: 0; font-weight: 300; line-height: 1.65; font-size: 1.05rem; }
+.mv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 2rem); }
+.mv-card { border-radius: var(--r); padding: clamp(1.6rem, 3.4vw, 3.2rem); min-height: clamp(260px, 42vh, 420px); display: flex; flex-direction: column; justify-content: space-between; border: var(--edge); }
+.mv-m { background: var(--green); } .mv-v { background: #fff; }
+.mv-k { margin: 0; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .85rem; }
+.mv-t { margin: 1.5rem 0 0; font-size: clamp(1.4rem, 2.6vw, 2.4rem); line-height: 1.2; letter-spacing: -.02em; font-weight: 400; }
+@media (max-width: 900px) { .who, .diff, .mv { grid-template-columns: 1fr; } }
+.mv-card { justify-content: flex-start; }

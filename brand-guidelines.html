@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=79">
-  <link rel="stylesheet" href="guide.css?v=79">
+  <link rel="stylesheet" href="styles.css?v=80">
+  <link rel="stylesheet" href="guide.css?v=82">
 </head>
 <body class="sub">
 
@@ -27,63 +27,38 @@
 
   <main id="top" class="scenes">
 
-    <!-- 00 START -->
     <section class="scene s-green hero-scene" id="start" data-label="Start">
       <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="Images/video/gana-header-poster.jpg" aria-hidden="true">
         <source src="Images/video/gana-header.webm" type="video/webm">
         <source src="Images/video/gana-header.mp4" type="video/mp4">
       </video>
       <h1 class="sr-only">GANA Brand Guidelines</h1>
+      <div class="scroll-cue" aria-hidden="true"><span>Scroll down</span><i></i></div>
     </section>
 
-            <!-- 03 PERSONALITY -->
-    <section class="scene s-light" id="personality" data-label="Personality">
+    <section class="scene s-light" id="manifesto" data-label="Manifesto">
       <div class="scene-in wide">
-        <header class="scene-head"><p class="kicker">Personality and voice</p><h2>Warm, clear, easy to say.</h2><p>GANA speaks in simple, warm and clear language. The tone is calm and approachable.</p></header>
-        <div class="scene-body pv">
-          <div class="pv-left">
-            <div class="pv-bottle" id="pv-bottle" role="tablist" aria-label="Brand personality"></div>
-            <div class="pv-detail" id="pv-detail" role="tabpanel" aria-live="polite"></div>
-          </div>
-          <div class="pv-right">
-            <label class="pv-switch"><input type="checkbox" id="voice-dial"><span class="pv-track"><i></i></span><span id="voice-dial-label">Stiff voice: what we avoid</span></label>
-            <ul class="pv-chat" id="voice-list"></ul>
-          </div>
+        <header class="scene-head"><p class="kicker">Brand manifesto</p><h2>We believe freshness begins at the source.</h2></header>
+        <div class="scene-body cols3">
+          <p>With sugarcane grown on farms, carefully selected, and pressed for people to enjoy. We want that connection to remain visible, in the stories we share, the materials we choose, and the experiences we create.</p>
+          <p>We bring the feeling of sugarcane into your hands through texture, into our spaces through form, and into the experience through the sound of the first press.</p>
+          <p>We believe sustainability belongs in everyday decisions: where ingredients come from, how products are packaged, and what happens after the drink is finished.</p>
         </div>
+        <p class="manifesto-close">GANA brings these ideas together in a simple, refreshing experience, rooted in the ingredient.</p>
       </div>
     </section>
 
-    <!-- 04 PILLARS -->
     <section class="scene s-cream" id="pillars-scene" data-label="Pillars">
       <div class="scene-in wide">
-        <header class="scene-head"><p class="kicker">Strategic pillars</p><h2>Five ideas that hold it up.</h2></header>
+        <header class="scene-head"><p class="kicker">5 strategic pillars</p><h2>Five ideas that hold it up.</h2></header>
         <div class="scene-body"><div class="stalks" id="pillars" role="list"></div></div>
       </div>
     </section>
 
-    <!-- 05 LOGO STUDIO -->
-    <section class="scene s-green" id="logo" data-label="Logo">
-      <div class="scene-in">
-        <header class="scene-head"><p class="kicker">The logo</p><h2>Try it on anything.</h2><p>Rounded letterforms on a consistent grid. Always use the approved artwork, never retype it.</p></header>
-        <div class="scene-body studio">
-          <div class="studio-stage" id="studio-stage" data-bg="cream">
-            <div class="logo-art" id="studio-logo" role="img" aria-label="GANA logo preview"></div>
-            <p class="studio-warn" id="studio-warn" hidden></p>
-          </div>
-          <div class="studio-controls">
-            <fieldset><legend>Arrangement</legend><div class="g-tabs" id="arr-tabs"></div><p class="g-note" id="arr-note"></p></fieldset>
-            <fieldset><legend>Background</legend><div class="swatch-row" id="bg-row"></div></fieldset>
-            <fieldset><legend>Logo color</legend><div class="swatch-row" id="lc-row"></div><p class="g-note" id="lc-note"></p></fieldset>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 06 CONSTRUCTION + CLEAR SPACE -->
     <section class="scene s-cream" id="construction" data-label="Construction">
       <div class="scene-in wide">
-        <header class="scene-head"><p class="kicker">Under the hood</p><h2>Grid and clear space.</h2></header>
-        <div class="scene-body duo">
+        <header class="scene-head"><p class="kicker">The logo</p><h2>Logo construction.</h2></header>
+        <div class="scene-body solo-panel">
           <div class="panel">
             <h3>Construction</h3>
             <div class="constr" id="constr">
@@ -93,6 +68,14 @@
             <button type="button" class="btn btn-ghost btn-small" id="constr-btn" aria-pressed="false">Show construction</button>
             <p>The logo uses a modular grid to organize the letters. Shared alignments, spacing and corner treatments connect every arrangement. The grid is a reference and should not appear in everyday brand applications.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene s-light" id="clear-space" data-label="Clear space">
+      <div class="scene-in wide">
+        <header class="scene-head"><p class="kicker">The logo</p><h2>Clear space.</h2></header>
+        <div class="scene-body solo-panel">
           <div class="panel">
             <h3>Clear space</h3>
             <figure class="clear-fig"><img src="Images/clear-space.jpg" alt="GANA logo with the clear space grid around it" width="1185" height="671"></figure>
@@ -102,7 +85,6 @@
       </div>
     </section>
 
-    <!-- 07 MISUSE -->
     <section class="scene s-light" id="misuse-scene" data-label="Don&rsquo;ts">
       <div class="scene-in wide">
         <header class="scene-head"><p class="kicker">Incorrect logo use</p><h2>Please don&rsquo;t.</h2><p>Consistency depends on preserving the approved artwork.</p></header>
@@ -122,18 +104,6 @@
       </div>
     </section>
 
-    <!-- 08 COLOR -->
-    <section class="scene s-cream color-scene" id="color" data-label="Color">
-      <div class="scene-in wide">
-        <header class="scene-head"><p class="kicker">Color</p><h2>Sugarcane green, warm cream.</h2><p>Tap a color band to copy its HEX value.</p></header>
-        <div class="scene-body">
-          <div class="swatches" id="swatches"></div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 09 TYPE -->
     <section class="scene s-green" id="type" data-label="Type">
       <div class="scene-in">
         <header class="scene-head"><p class="kicker">Typography</p><h2>Say it in Gotham.</h2><p>Gotham supports the rounded wordmark with structure and clarity. Type your own text.</p></header>
@@ -156,10 +126,19 @@
       </div>
     </section>
 
-    <!-- 10 TEXTURE -->
+    <section class="scene s-cream color-scene" id="color" data-label="Color">
+      <div class="scene-in wide">
+        <header class="scene-head"><p class="kicker">Color</p><h2>Sugarcane green, warm cream.</h2><p>Tap a color band to copy its HEX value.</p></header>
+        <div class="scene-body">
+          <div class="swatches" id="swatches"></div>
+
+        </div>
+      </div>
+    </section>
+
     <section class="scene s-cream" id="texture" data-label="Texture">
       <div class="scene-in wide full">
-        <header class="scene-head"><p class="kicker">Texture and pattern</p><h2>Feel the cane.</h2><p>Raised ridges and recessed grooves, plus a pattern built from the logo forms.</p></header>
+        <header class="scene-head"><p class="kicker">Texture</p><h2>Feel the cane.</h2><p>Raised ridges and recessed grooves that bring the surface of sugarcane into your hands.</p></header>
         <div class="scene-body">
           <div class="tex-lab">
             <div class="tex-stage" id="tex-stage" aria-label="Ridge texture preview"></div>
@@ -171,18 +150,18 @@
               <p>Repeat a raised vertical ridge and a recessed groove, evenly spaced. Each ridge takes 60% of one repeat, the groove the other 40%. When resizing, scale both together.</p>
             </div>
           </div>
-          <div class="duo figs">
-            <figure class="g-fig"><img src="Images/gana-texture.jpg" alt="Vertical ridge texture of sugarcane." loading="lazy"><figcaption><strong>Texture.</strong> Preserve ridge widths, bridge positions and spacing.</figcaption></figure>
-            <figure class="g-fig"><img src="Images/gana-pattern.jpg" alt="GANA logo pattern in green and cream." loading="lazy"><figcaption><strong>Pattern.</strong> Repeated logo forms in GANA Green #99BC20 and Cream #F2E8D5.</figcaption></figure>
-          </div>
+          <figure class="g-fig tex-fig"><img src="Images/gana-texture.jpg" alt="Vertical ridge texture of sugarcane." loading="lazy"><figcaption><strong>Texture.</strong> Preserve ridge widths, bridge positions and spacing.</figcaption></figure>
         </div>
       </div>
     </section>
 
-    <!-- 11 EXPERIENCE -->
-    
+    <section class="scene s-green" id="patterns" data-label="Patterns">
+      <div class="scene-in wide full">
+        <header class="scene-head"><p class="kicker">Pattern</p><h2>Built from the logo.</h2><p>Repeated logo forms in GANA Green #99BC20 and Cream #F2E8D5. Keep letterforms intact when using them in patterns.</p></header>
+        <div class="scene-body"><figure class="g-fig pat-fig"><img src="Images/gana-pattern.jpg" alt="GANA logo pattern in green and cream." loading="lazy"></figure></div>
+      </div>
+    </section>
 
-    <!-- 12 PROMPT GUIDE -->
     <section class="scene s-green" id="prompt" data-label="Prompts">
       <div class="scene-in wide">
         <header class="scene-head"><p class="kicker">AI prompt guide</p><h2>Seven parts, one prompt.</h2><p>Four permanent brand rules and three that change with every project.</p></header>
@@ -193,7 +172,6 @@
       </div>
     </section>
 
-    <!-- DOWNLOAD -->
     <section class="scene s-green dl-scene" id="download" data-label="Download">
       <div class="scene-in wide dl-in">
         <div class="dl-copy">
@@ -212,6 +190,40 @@
 
   </main>
 
+  <div hidden aria-hidden="true" class="parked">
+<section class="parked-scene s-light" id="personality" data-label="Personality">
+      <div class="scene-in wide">
+        <header class="scene-head"><p class="kicker">Personality and voice</p><h2>Warm, clear, easy to say.</h2><p>GANA speaks in simple, warm and clear language. The tone is calm and approachable.</p></header>
+        <div class="scene-body pv">
+          <div class="pv-left">
+            <div class="pv-bottle" id="pv-bottle" role="tablist" aria-label="Brand personality"></div>
+            <div class="pv-detail" id="pv-detail" role="tabpanel" aria-live="polite"></div>
+          </div>
+          <div class="pv-right">
+            <label class="pv-switch"><input type="checkbox" id="voice-dial"><span class="pv-track"><i></i></span><span id="voice-dial-label">Stiff voice: what we avoid</span></label>
+            <ul class="pv-chat" id="voice-list"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="parked-scene s-green" id="logo" data-label="Logo">
+      <div class="scene-in">
+        <header class="scene-head"><p class="kicker">The logo</p><h2>Try it on anything.</h2><p>Rounded letterforms on a consistent grid. Always use the approved artwork, never retype it.</p></header>
+        <div class="scene-body studio">
+          <div class="studio-stage" id="studio-stage" data-bg="cream">
+            <div class="logo-art" id="studio-logo" role="img" aria-label="GANA logo preview"></div>
+            <p class="studio-warn" id="studio-warn" hidden></p>
+          </div>
+          <div class="studio-controls">
+            <fieldset><legend>Arrangement</legend><div class="g-tabs" id="arr-tabs"></div><p class="g-note" id="arr-note"></p></fieldset>
+            <fieldset><legend>Background</legend><div class="swatch-row" id="bg-row"></div></fieldset>
+            <fieldset><legend>Logo color</legend><div class="swatch-row" id="lc-row"></div><p class="g-note" id="lc-note"></p></fieldset>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+
   <nav class="dial" id="dial" aria-label="Scenes"><ol id="dial-list"></ol></nav>
   <div class="hud" aria-hidden="true"><span id="hud-n">01</span><span class="hud-of">/ <span id="hud-t">15</span></span><span id="hud-l">Start</span></div>
   <button type="button" class="next-btn" id="next-btn" aria-label="Next scene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button>
@@ -224,8 +236,8 @@
     </div>
   </footer>
 
-  <script src="script.js?v=79"></script>
-  <script src="guide.js?v=79"></script>
-  <script src="scenes.js?v=79"></script>
+  <script src="script.js?v=80"></script>
+  <script src="guide.js?v=80"></script>
+  <script src="scenes.js?v=80"></script>
 </body>
 </html>
