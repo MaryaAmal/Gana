@@ -726,3 +726,6 @@ body.sub .cascade-only { min-height: 100svh; }
 /* no widows: balance headings and sub headings, avoid orphans in paragraphs */
 h1, h2, h3, h4, .kicker, .scene-head p, .hdr-cap, .studio-title h2, .dl-copy h2, .manifesto-close, figcaption { text-wrap: balance; }
 p, li { text-wrap: pretty; }
+/* About: caption sits on the line, like the home page */
+.about-hero .hdr-cap.hc-m { top: auto; bottom: calc(48% - 4px); }
+@media (max-width: 780px) { .about-hero .hdr-cap.hc-m { top: auto; bottom: calc(60% - 4px); } }
