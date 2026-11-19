@@ -13,59 +13,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=31">
-  <link rel="stylesheet" href="home.css?v=31">
+  <link rel="stylesheet" href="styles.css?v=34">
+  <link rel="stylesheet" href="home.css?v=34">
 </head>
 <body class="home">
-<div class="stage">
-  <section class="card" id="top">
-    <header class="c-head">
-      <a href="#top" class="c-logo" aria-label="GANA home"><img src="Images/gana-logo.png" alt="GANA"></a>
-      <nav class="c-nav" aria-label="Main">
-        <a href="#top" aria-current="page">Home</a>
-        <a href="brand-guidelines.html">Brand Guidelines</a>
-        <a href="#visit" class="c-pill">Visit Us</a>
-      </nav>
-    </header>
-    <div class="c-body">
-      <ol class="steps" aria-label="Slides">
-        <li><button type="button" class="on" data-go="0" aria-label="Slide 1">01</button></li>
-        <li><button type="button" data-go="1" aria-label="Slide 2">02</button></li>
-        <li><button type="button" data-go="2" aria-label="Slide 3">03</button></li>
-        <li><button type="button" data-go="3" aria-label="Slide 4">04</button></li>
-      </ol>
-      <div class="c-copy" aria-live="polite">
-        <article class="slide on" data-i="0" aria-hidden="false">
-          <h1 class="h">FRESH<br>SUGARCANE</h1>
-          <p>Freshly pressed and poured the moment you order. Nothing added, nothing taken away.</p>
-          <div class="btns"><a class="cta" href="#visit">Visit us</a></div>
-        </article>
-        <article class="slide" data-i="1" aria-hidden="true">
-          <h1 class="h">PRESSED<br>TO ORDER</h1>
-          <p>The cane goes in whole and comes out as juice, right in front of you.</p>
-          <div class="btns"><a class="cta" href="#visit">Visit us</a></div>
-        </article>
-        <article class="slide" data-i="2" aria-hidden="true">
-          <h1 class="h">ROOTED IN THE<br>INGREDIENT</h1>
-          <p>Freshness begins at the source: honest, simple and sustainable.</p>
-          <div class="btns"><a class="cta" href="#visit">Visit us</a></div>
-        </article>
-        <article class="slide" data-i="3" aria-hidden="true">
-          <h1 class="h">REFRESHING<br>BY NATURE</h1>
-          <p>Find GANA near you and taste the difference.</p>
-          <div class="btns"><a class="cta" href="#visit">Visit us</a><a class="cta ghost" href="brand-guidelines.html">Brand guidelines</a></div>
-        </article>
-      </div>
-      <div class="c-bottle" aria-hidden="true">
-        <span class="mark">GANA</span>
-        <img class="ghost" src="Images/bottle-cutout.webp" alt="">
-        <span class="shadow"></span>
-        <img class="hero-bottle" src="Images/bottle-cutout.webp" alt="GANA sugarcane juice bottle">
-      </div>
-      <button type="button" class="c-next" aria-label="Next slide"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10.5"/><path d="M7 12h10M13 8l4 4-4 4"/></svg></button>
+<main id="top" class="hero">
+  <nav class="h-nav" aria-label="Main">
+    <a href="#top" aria-current="page">Home</a>
+    <a href="brand-guidelines.html">Brand Guidelines</a>
+    <a href="#visit" class="h-pill">Visit Us</a>
+  </nav>
+
+  <h1 class="wm"><img src="Images/gana-wordmark-cream.webp" alt="GANA"></h1>
+
+  <i class="rule r1"></i><i class="rule r2"></i>
+
+  <div class="cans" aria-hidden="false">
+    <img class="can c1" src="Images/bottle-cutout.webp" alt="GANA fresh sugarcane juice bottle">
+    <img class="can c2" src="Images/bottle-cutout.webp" alt="">
+    <img class="can c3" src="Images/bottle-cutout.webp" alt="">
+  </div>
+
+  <p class="cap cap-l">Freshly pressed<br>sugarcane juice,<br>from the cane.</p>
+  <p class="cap cap-r">Refreshing<br>by nature.</p>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="track">
+      <span>Freshly pressed &nbsp;&bull;&nbsp; From the cane &nbsp;&bull;&nbsp; Refreshing by nature &nbsp;&bull;&nbsp; Rooted in the ingredient &nbsp;&bull;&nbsp;</span>
+      <span>Freshly pressed &nbsp;&bull;&nbsp; From the cane &nbsp;&bull;&nbsp; Refreshing by nature &nbsp;&bull;&nbsp; Rooted in the ingredient &nbsp;&bull;&nbsp;</span>
+      <span>Freshly pressed &nbsp;&bull;&nbsp; From the cane &nbsp;&bull;&nbsp; Refreshing by nature &nbsp;&bull;&nbsp; Rooted in the ingredient &nbsp;&bull;&nbsp;</span>
     </div>
-  </section>
-</div>
+  </div>
+</main>
 
 <footer class="site-footer" id="visit">
   <div class="container footer-grid">
@@ -74,6 +53,6 @@
     <p class="small"><a href="brand-guidelines.html">Brand Guidelines</a> &middot; &copy; <span id="year">2026</span> GANA. All rights reserved.</p>
   </div>
 </footer>
-<script src="home.js?v=31"></script>
+<script src="home.js?v=34"></script>
 </body>
 </html>
