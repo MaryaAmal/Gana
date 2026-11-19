@@ -12,5 +12,7 @@
   }
   if(reduce){v.removeAttribute('src');v.style.display='none';sec.classList.add('static');show(0.5);return;}
   v.addEventListener('loadedmetadata',function(){v.currentTime=0;});
-  v.load(); requestAnimationFrame(tick);
+  v.load();
+  var pr=v.play(); if(pr&&pr.then){pr.then(function(){v.pause();v.currentTime=0;}).catch(function(){});}
+  requestAnimationFrame(tick);
 })();
