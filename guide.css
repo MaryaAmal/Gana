@@ -600,3 +600,11 @@ body.sub .cascade-only { min-height: 100svh; }
   .studio-full .studio-stage .logo-art { transform: scale(.7); }
   .studio-title { padding: .45rem .9rem .6rem; }
 }
+.seven-detail { max-height: 62vh; overflow: auto; }
+.seven-detail .sd-d { font-weight: 500; }
+.seven-detail ul { padding-left: 1.1rem; display: grid; gap: .8rem; }
+.seven-detail li { line-height: 1.6; font-weight: 300; }
+.seven-detail li strong { font-weight: 600; }
+.sd-copy { margin-top: 1rem; }
+.seven-detail { max-height: max(240px, calc(100svh - 470px)); }
+@media (max-width: 900px) { .seven-detail { max-height: 50svh; } }
