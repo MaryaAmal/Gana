@@ -462,3 +462,13 @@ body.sub .cascade-only { min-height: 100svh; }
 .exp-copy p { font-weight: 300; line-height: 1.7; margin: 0 0 1rem; font-size: clamp(1rem, 1.2vw, 1.15rem); }
 .exp-copy .tag { display: inline-block; padding: .25rem .7rem; border: var(--edge); border-radius: var(--r); background: var(--green); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
 @media (max-width: 900px) { .exp-big, .exp-scene.flip .exp-big { grid-template-columns: 1fr; } .exp-big img, .exp-scene.flip .exp-big img { order: 0; min-height: 0; height: 56svh; } .exp-copy { padding: 1.5rem 1.25rem 4rem; } }
+/* Experience header */
+.exp-intro { position: relative; overflow: hidden; display: grid; align-items: end; }
+.exp-intro .exp-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.exp-intro::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,27,27,.05) 30%, rgba(27,27,27,.5) 100%); }
+.exp-intro-in { position: relative; z-index: 1; padding: 0 clamp(1.5rem, 6vw, 6rem) clamp(5rem, 14svh, 9rem); max-width: 1500px; }
+.exp-intro .kicker { color: #FAF6EC; }
+.exp-intro h1 { font-size: clamp(3rem, 8.4vw, 8.5rem); line-height: .95; letter-spacing: -.035em; font-weight: 400; color: #FAF6EC; margin: .5rem 0 1.4rem; max-width: 14ch; text-shadow: 0 4px 40px rgba(27,27,27,.25); }
+.exp-lede { font-size: clamp(1.4rem, 3vw, 2.6rem); font-weight: 300; color: #F2E8D5; margin: 0; letter-spacing: -.01em; line-height: 1.2; max-width: 22ch; }
+.exp-intro::after { background: linear-gradient(90deg, rgba(27,27,27,.38) 0%, rgba(27,27,27,.12) 60%, rgba(27,27,27,0) 100%), linear-gradient(180deg, rgba(27,27,27,0) 40%, rgba(27,27,27,.4) 100%); }
+.exp-lede { text-shadow: 0 2px 24px rgba(27,27,27,.45); font-weight: 400; }
