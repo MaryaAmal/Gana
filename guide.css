@@ -446,3 +446,8 @@ body.sub .cascade-only { min-height: 100svh; }
 #texture .figs { gap: clamp(1rem, 2.5vw, 2rem); }
 #texture .figs img { width: 100%; height: clamp(220px, 38vh, 420px); object-fit: cover; display: block; }
 @media (max-width: 900px) { #texture .tex-controls { grid-template-columns: 1fr; } #texture .tex-stage { min-height: 260px; } }
+/* Texture scene: bigger figures, caption under image */
+#texture .g-fig { grid-template-columns: minmax(0, 1fr); gap: .7rem; align-items: start; }
+#texture .figs img { height: clamp(300px, 52vh, 560px); aspect-ratio: auto; }
+#texture .g-fig figcaption { font-size: 1rem; }
+@media (max-width: 900px) { #texture .figs img { height: 260px; } }
