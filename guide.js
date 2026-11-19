@@ -99,10 +99,10 @@
 
   /* ---------- logo studio ---------- */
   var ARR = [
-    { id: 'horizontal', label: 'Horizontal', mask: 'logo-horizontal', ar: '960/323', w: 'min(80vw, 1000px)', note: 'The complete wordmark reads across one line. Use for storefront signage, website headers and wide layouts.' },
-    { id: 'vertical', label: 'Vertical', mask: 'logo-vertical', ar: '327/957', w: '15vh', note: 'The approved vertical composition fits narrow, upright spaces. Use for bottle packaging and vertical signage.' },
-    { id: 'stack', label: 'Two-line stack', mask: 'logo-stack', ar: '478/693', w: '30vh', note: 'The wordmark divided into the approved GA / NA composition. Use for square labels, stickers and social media.' },
-    { id: 'spatial', label: 'Spatial composition', mask: 'logo-spatial', ar: '787/747', w: '40vh', note: 'The letters occupy a more open arrangement within the grid. Use for editorial layouts, campaigns and motion.' }
+    { id: 'horizontal', label: 'Horizontal', mask: 'logo-horizontal', ar: '960/323', w: 'min(80vw, 1000px)', note: 'The complete wordmark reads across one line. Applications: storefront signage, website headers and wide layouts.' },
+    { id: 'vertical', label: 'Vertical', mask: 'logo-vertical', ar: '327/957', w: '15vh', note: 'The approved vertical composition fits narrow, upright spaces. Applications: bottle packaging and vertical signage.' },
+    { id: 'stack', label: 'Two-line stack', mask: 'logo-stack', ar: '478/693', w: '30vh', note: 'The wordmark divided into the approved GA / NA composition. Applications: square labels, stickers, and social media.' },
+    { id: 'spatial', label: 'Spatial composition', mask: 'logo-spatial', ar: '787/747', w: '40vh', note: 'The letters occupy a more open arrangement within the grid. Applications: editorial layouts, campaigns, and motion.' }
   ];
   var BG = [
     { id: 'cream', label: 'Cream', c: CREAM },
@@ -111,9 +111,9 @@
     { id: 'grey', label: 'Neutral', c: GREY }
   ];
   var LC = [
-    { id: 'green', label: 'GANA Green', c: GREEN, note: 'Primary: on cream or a light neutral background.' },
-    { id: 'cream', label: 'Cream', c: CREAM, note: 'On a green background where the wordmark stays clearly visible.' },
-    { id: 'ink', label: 'Single color', c: INK, note: 'For printing or production limits. Silver is a physical finish for approved packaging; a screen can only approximate it.' }
+    { id: 'green', label: 'GANA Green', c: GREEN, note: 'GANA Green logo: cream or a light neutral background. The logo primarily appears in GANA green, with cream providing a warm supporting background.' },
+    { id: 'cream', label: 'Cream', c: CREAM, note: 'Cream logo: a green background where the wordmark remains clearly visible.' },
+    { id: 'ink', label: 'Single color', c: INK, note: 'Single-color reproduction: applications with printing or production limitations. Silver is used for the approved packaging expression and selected physical applications; a screen can only approximate it.' }
   ];
   var st = { arr: 0, bg: 0, lc: 0 };
   var stage = $('studio-stage'), art = $('studio-logo'), warn = $('studio-warn');
@@ -173,11 +173,15 @@
 
   /* ---------- color ---------- */
   var SW = [
-    { n: 'GANA Green', h: GREEN, d: 'The core brand color: sugarcane. Main pattern and logo color.' },
-    { n: 'Cream', h: CREAM, d: 'Warm supporting background and the second core pattern color.' },
+    { n: 'GANA Green', h: GREEN, d: 'Primary. Pantone 2300 C \u00b7 CMYK 19, 0, 68, 26.' },
+    { n: 'Deep Green', h: '#547335', d: 'Primary. RGB 84, 115, 53 \u00b7 Pantone 364 C \u00b7 CMYK 27, 0, 54, 55.' },
+    { n: 'Cream', h: CREAM, d: 'Primary. Pantone 7506 C \u00b7 CMYK 0, 5, 13, 5.' },
     { n: 'Light cream', h: LIGHT, d: 'A lighter cream where a quieter background is needed.' },
-    { n: 'Silver', h: null, d: 'A material finish for approved packaging. A flat screen color is only an approximation.' }
+    { n: 'Black', h: '#000000', d: 'Secondary. Adds definition to typography and graphics. Pantone Black 3 C.' },
+    { n: 'White', h: '#FFFFFF', d: 'Secondary. Creates space and lets the signature greens stand out. Pantone 11-0601.' },
+    { n: 'Silver', h: null, d: 'Accent. A reflective finish for the wordmark and details through metallic foil, ink, or brushed metal.' }
   ];
+
   var sw = $('swatches');
   SW.forEach(function (s) {
     var b = el('button', 'swatch'); b.type = 'button';
@@ -190,7 +194,7 @@
   });
 
   /* ---------- type tester ---------- */
-  var W = [['Light', 300, 'Body text'], ['Regular', 400, 'Headlines'], ['Medium', 500, 'Subheadings and flavor names']];
+  var W = [['Light', 300, 'product descriptions, brand information, and longer passages'], ['Regular', 400, 'main messages, campaign statements, and page titles'], ['Medium', 500, 'section headings, product names, and supporting emphasis']];
   var wt = $('weight-tabs'), ts = $('type-sample'), tz = $('type-size'), tzo = $('type-size-out');
   W.forEach(function (w, i) {
     var b = el('button', '', w[0]); b.type = 'button'; b.setAttribute('aria-pressed', 'false');
