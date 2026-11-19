@@ -648,3 +648,27 @@ body.sub .cascade-only { min-height: 100svh; }
 .exp-wide .exp-big { grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); }
 .exp-wide .exp-copy { padding: clamp(1.5rem, 3vw, 3rem); }
 @media (max-width: 900px) { .exp-wide .exp-big { grid-template-columns: 1fr; } }
+.exp-intro .exp-bg { object-position: 50% 40%; }
+.exp-intro::after { background:
+  linear-gradient(90deg, rgba(27,27,27,.6) 0%, rgba(27,27,27,.28) 45%, rgba(27,27,27,0) 75%),
+  linear-gradient(180deg, rgba(27,27,27,0) 45%, rgba(27,27,27,.5) 100%); }
+@media (min-width: 901px) {
+  .exp-intro .exp-bg { width: 126%; max-width: none; object-fit: cover; object-position: left 40%; }
+  .exp-intro h1 { font-size: clamp(2.8rem, 5.4vw, 5.8rem); max-width: 9ch; }
+  .exp-lede { font-size: clamp(1.2rem, 2.2vw, 2rem); max-width: 18ch; }
+}
+@media (max-width: 900px) {
+  .exp-intro::after { background: linear-gradient(180deg, rgba(27,27,27,0) 25%, rgba(27,27,27,.7) 100%); }
+  .exp-intro h1 { font-size: clamp(2.4rem, 11vw, 3.4rem); }
+  .exp-intro .exp-bg { object-position: 50% 20%; }
+}
+/* Experience header: shelf image, text along the bottom */
+.exp-intro .exp-bg { width: 100% !important; max-width: 100%; object-fit: cover; object-position: 50% 40%; }
+.exp-intro::after { background: linear-gradient(180deg, rgba(27,27,27,.25) 0%, rgba(27,27,27,0) 22%, rgba(27,27,27,0) 52%, rgba(27,27,27,.78) 100%) !important; }
+.exp-intro-in { padding-bottom: clamp(4.5rem, 11svh, 7rem); }
+.exp-intro h1 { font-size: clamp(2.4rem, 5vw, 5.2rem) !important; max-width: 17ch !important; margin-bottom: .8rem; }
+.exp-lede { font-size: clamp(1.1rem, 2vw, 1.8rem) !important; max-width: 30ch !important; }
+.exp-intro .kicker { margin-bottom: 0; }
+.exp-intro::after { background: linear-gradient(180deg, rgba(27,27,27,.25) 0%, rgba(27,27,27,0) 20%, rgba(27,27,27,0) 36%, rgba(27,27,27,.82) 100%) !important; }
+.exp-intro-in { padding-bottom: clamp(5rem, 12svh, 7.5rem); }
+.exp-intro h1 { font-size: clamp(2.3rem, 4.4vw, 4.6rem) !important; }
