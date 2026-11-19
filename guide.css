@@ -631,3 +631,10 @@ body.sub .cascade-only { min-height: 100svh; }
 @media (max-width: 600px) { .pat-ctrl { gap: .4rem; padding: .4rem .6rem; width: calc(100% - 1.5rem); justify-content: center; } .pat-ctrl input { width: 90px; } }
 .pat-tile { position: absolute; inset: 0; background: url(Images/pattern-tile.jpg) repeat; }
 .pat-view { cursor: grab; touch-action: none; } .pat-view.drag { cursor: grabbing; }
+.mv-big { max-width: 14em; }
+.voice-rows { display: grid; gap: clamp(.8rem, 2vh, 1.3rem); }
+.voice-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(.8rem, 2vw, 1.6rem); align-items: stretch; }
+.voice-row p { margin: 0; padding: clamp(1.1rem, 2.4vw, 1.9rem) clamp(1.3rem, 2.6vw, 2.2rem); font-size: clamp(1.15rem, 2vw, 1.8rem); line-height: 1.25; letter-spacing: -.01em; border-radius: 28px 28px 28px 8px; border: var(--edge); }
+.vr-bad { background: #fff; color: #666; text-decoration: line-through; text-decoration-color: rgba(27,27,27,.35); }
+.vr-good { background: var(--green); font-weight: 500; border-radius: 28px 28px 8px 28px !important; }
+@media (max-width: 700px) { .voice-row { grid-template-columns: 1fr; } }
