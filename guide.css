@@ -390,8 +390,8 @@ input[type=range] { accent-color: var(--ink); cursor: pointer; }
 .hero.scene .btn-ghost:hover:not(:disabled) { background: #fff; color: var(--ink); }
 
 /* HOME: scroll-driven pour video */
-.pour{height:520vh;position:relative;background:#F2E8D5}
-.pour-stick{background:#F2E8D5 url("Images/video/home-poster.jpg") center / cover no-repeat;position:sticky;top:72px;height:calc(100svh - 72px);overflow:hidden}
+.pour{min-height:100vh;height:520vh;position:relative;background:#F2E8D5}
+.pour-stick{background:#F2E8D5 url("Images/video/home-poster.jpg") center / cover no-repeat;position:sticky;top:72px;height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:480px;overflow:hidden}
 .pour-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .pour-copy{position:absolute;inset:0;pointer-events:none}
 .pc{position:absolute;left:clamp(24px,6vw,96px);top:50%;transform:translateY(-46%);max-width:min(30rem,42vw);opacity:0;transition:opacity .5s ease,transform .6s ease;pointer-events:none}
