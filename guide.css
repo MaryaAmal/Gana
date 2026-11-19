@@ -411,3 +411,16 @@ input[type=range] { accent-color: var(--ink); cursor: pointer; }
 .pour.static{height:auto}.pour.static .pour-stick{position:relative;height:calc(100svh - 72px)}
 .btn-light{background:#fff;border-color:#fff;color:#1b1b1b}
 @media(max-width:900px){.pour-video{top:auto;height:64%}.pc{max-width:none;right:24px;top:6%;bottom:auto;transform:translateY(14px)}.pc.on{transform:none}.pc h1,.pc h2{font-size:clamp(2.2rem,10vw,3.4rem);margin-bottom:.6rem}.pc .pl{font-size:1rem;margin-bottom:.8rem}}
+
+/* About hero: flat brand colour, three bottles, big headline */
+.about-hero { background: var(--green); }
+.about-hero .about-title { position: absolute; z-index: 2; left: clamp(20px, 5vw, 80px); bottom: clamp(24px, 6svh, 70px); margin: 0; color: #fff; text-transform: uppercase; font-weight: 800; font-size: clamp(3rem, 9.4vw, 9rem); line-height: .92; letter-spacing: -.035em; text-shadow: 0 6px 30px rgba(27, 27, 27, .10); }
+.trio { --H: min(46svh, 480px); }
+.trio .tb { position: absolute; height: var(--H); width: auto; transform: translate(-50%, -50%) rotate(var(--r)); filter: drop-shadow(0 26px 24px rgba(27, 27, 27, .26)); animation: trioin 1.3s cubic-bezier(.2, .8, .2, 1) both, trioflt 7s ease-in-out infinite; z-index: 1; }
+.trio .tb1 { --r: 27deg; left: 62%; top: 50%; animation-delay: .15s, 1.5s; }
+.trio .tb2 { --r: -5deg; left: 82%; top: 29%; animation-delay: .3s, 1.9s; }
+.trio .tb3 { --r: 7deg; left: 74%; top: 71%; animation-delay: .45s, 2.3s; }
+@keyframes trioin { from { opacity: 0; translate: 0 12svh; } to { opacity: 1; translate: 0 0; } }
+@keyframes trioflt { 0%, 100% { translate: 0 0; } 50% { translate: 0 -1.4svh; } }
+@media (max-width: 900px) { .trio { --H: 34svh; } .trio .tb1 { left: 32%; top: 36%; } .trio .tb2 { left: 70%; top: 22%; } .trio .tb3 { left: 58%; top: 52%; } .about-hero .about-title { font-size: clamp(2.6rem, 14vw, 4.4rem); } }
+@media (prefers-reduced-motion: reduce) { .trio .tb { animation: none; } }
