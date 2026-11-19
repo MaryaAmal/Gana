@@ -424,3 +424,10 @@ input[type=range] { accent-color: var(--ink); cursor: pointer; }
 @keyframes trioflt { 0%, 100% { translate: 0 0; } 50% { translate: 0 -1.4svh; } }
 @media (max-width: 900px) { .trio { --H: 42svh; } .trio .tb1 { left: 32%; top: 36%; } .trio .tb2 { left: 70%; top: 22%; } .trio .tb3 { left: 58%; top: 52%; } .about-hero .about-title { font-size: clamp(2.6rem, 14vw, 4.4rem); } }
 @media (prefers-reduced-motion: reduce) { .trio .tb { animation: none; } }
+
+/* Header nav matches the home page: same size, spacing and pill */
+.site-nav { gap: clamp(14px, 2.2vw, 30px); }
+.site-nav a { font-size: .82rem; font-weight: 500; letter-spacing: .02em; }
+.site-nav a:not(.btn):hover { text-decoration: none; opacity: .65; }
+.site-nav a[aria-current="page"]:not(.btn) { text-decoration: none; }
+.site-nav .btn.btn-small { display: inline-block; line-height: 20px; padding: 11px 20px; font-size: .82rem; font-weight: 500; border-radius: 99px; box-shadow: none; }
