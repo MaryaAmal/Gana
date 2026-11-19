@@ -524,3 +524,22 @@ body.sub .cascade-only { min-height: 100svh; }
 @media (max-width: 900px) { .pv-layer[aria-selected="true"] { transform: none; } .pv-bottle { border-radius: 40px 40px 40px 40px; } .pv-layer:first-child { border-radius: 28px 28px 22px 22px; } }
 .clear-fig { margin: 0 0 1rem; background: #fff; border: var(--edge); border-radius: var(--r); overflow: hidden; }
 .clear-fig img { display: block; width: 100%; height: auto; }
+/* Download scene */
+.dl-in { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(1.5rem, 5vw, 5rem); align-items: center; }
+.dl-copy h2 { font-size: clamp(2.6rem, 5.4vw, 5rem); line-height: 1; letter-spacing: -.035em; font-weight: 400; color: #fff; margin: .5rem 0 1.2rem; }
+.dl-copy p { max-width: 32em; font-size: 1.1rem; }
+.dl-btns { display: flex; gap: .8rem; flex-wrap: wrap; margin: 1.6rem 0 .8rem; }
+.btn-ghost-w { display: inline-flex; align-items: center; padding: .95rem 1.7rem; border-radius: 999px; border: 2px solid #fff; color: #fff; font-weight: 500; text-decoration: none; transition: background .2s, color .2s; }
+.btn-ghost-w:hover { background: #fff; color: var(--ink); }
+.dl-meta { font-size: .85rem !important; opacity: .75; }
+.dl-preview { display: block; border-radius: var(--r); overflow: hidden; box-shadow: 0 30px 60px rgba(27,27,27,.28); transition: transform .3s; }
+.dl-preview:hover { transform: translateY(-4px) rotate(-.4deg); }
+.dl-preview img { display: block; width: 100%; height: auto; }
+@media (max-width: 900px) { .dl-in { grid-template-columns: 1fr; } }
+.scene-in.wide.dl-in { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; }
+.scene .dl-btns .btn-ghost-w { background: transparent; color: #fff; border: 2px solid #fff; box-shadow: none; }
+.scene .dl-btns .btn-ghost-w:hover { background: #fff; color: var(--ink); }
+.dl-copy p { color: #fff; }
+.dl-preview { max-height: 70svh; }
+.dl-preview img { max-height: 70svh; object-fit: cover; }
+@media (max-width: 900px) { .scene-in.wide.dl-in { grid-template-columns: minmax(0, 1fr); } }
