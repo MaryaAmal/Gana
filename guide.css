@@ -522,3 +522,5 @@ body.sub .cascade-only { min-height: 100svh; }
 .pv-bottle { border-radius: 999px 999px 56px 56px; }
 .pv-switch input { width: 1px; height: 1px; }
 @media (max-width: 900px) { .pv-layer[aria-selected="true"] { transform: none; } .pv-bottle { border-radius: 40px 40px 40px 40px; } .pv-layer:first-child { border-radius: 28px 28px 22px 22px; } }
+.clear-fig { margin: 0 0 1rem; background: #fff; border: var(--edge); border-radius: var(--r); overflow: hidden; }
+.clear-fig img { display: block; width: 100%; height: auto; }

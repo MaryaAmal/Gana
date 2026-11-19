@@ -156,14 +156,6 @@
     var on = !constr.classList.contains('on'); constr.classList.toggle('on', on);
     cBtn.setAttribute('aria-pressed', String(on)); cBtn.textContent = on ? 'Hide construction' : 'Show construction';
   });
-  var clBox = $('clear-box'), clBtn = $('clear-btn'), clSize = $('clear-size');
-  clBox.classList.add('show');
-  clBtn.addEventListener('click', function () {
-    var on = !clBox.classList.contains('show'); clBox.classList.toggle('show', on);
-    clBtn.setAttribute('aria-pressed', String(on)); clBtn.textContent = on ? 'Hide clear space' : 'Show clear space';
-  });
-  clSize.addEventListener('input', function () { clBox.style.setProperty('--w', clSize.value + 'px'); });
-
   var MIS = [
     ['Stretched', 'transform:scaleX(1.4)'], ['Rotated', 'transform:rotate(-14deg)'], ['Skewed', 'transform:skewX(-24deg)'],
     ['Unapproved color', '--lc:#E0662B'], ['Shadow and outline', 'filter:drop-shadow(5px 6px 0 #1B1B1B)'],
