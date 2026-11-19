@@ -176,7 +176,6 @@
     { n: 'GANA Green', h: GREEN, d: 'Primary. Pantone 2300 C \u00b7 CMYK 19, 0, 68, 26.' },
     { n: 'Deep Green', h: '#547335', d: 'Primary. RGB 84, 115, 53 \u00b7 Pantone 364 C \u00b7 CMYK 27, 0, 54, 55.' },
     { n: 'Cream', h: CREAM, d: 'Primary. Pantone 7506 C \u00b7 CMYK 0, 5, 13, 5.' },
-    { n: 'Light cream', h: LIGHT, d: 'A lighter cream where a quieter background is needed.' },
     { n: 'Black', h: '#000000', d: 'Secondary. Adds definition to typography and graphics. Pantone Black 3 C.' },
     { n: 'White', h: '#FFFFFF', d: 'Secondary. Creates space and lets the signature greens stand out. Pantone 11-0601.' },
     { n: 'Silver', h: null, d: 'Accent. A reflective finish for the wordmark and details through metallic foil, ink, or brushed metal.' }

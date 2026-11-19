@@ -729,3 +729,10 @@ p, li { text-wrap: pretty; }
 /* About: caption sits on the line, like the home page */
 .about-hero .hdr-cap.hc-m { top: auto; bottom: calc(48% - 4px); }
 @media (max-width: 780px) { .about-hero .hdr-cap.hc-m { top: auto; bottom: calc(60% - 4px); } }
+
+/* palette: aligned swatches */
+.swatch { align-items: stretch; }
+.swatch .chip { flex: 1 1 auto; min-height: 0; }
+.swatch .meta { flex: 0 0 auto; height: 8.6rem; box-sizing: border-box; overflow: hidden; }
+.swatches { align-items: stretch; }
+@media (max-width: 900px) { .swatch .meta { height: auto; min-height: 6.5rem; } }
