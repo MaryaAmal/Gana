@@ -303,22 +303,4 @@
     apply();
   })();
 
-
-  /* ---------- pen tool animation (last scene button) ---------- */
-  (function () {
-    var btn = $('next-btn'), path = $('pen-path'); if (!btn || !path) return;
-    var tool = btn.querySelector('.pen-tool'), L = path.getTotalLength(), start = performance.now();
-    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    path.style.strokeDasharray = L + ' ' + L;
-    function frame(now) {
-      if (btn.classList.contains('last')) {
-        var p = still ? .85 : ((now - start) % 3400) / 3400, d = Math.min(p / .8, 1), pt = path.getPointAtLength(L * d);
-        path.style.strokeDashoffset = L * (1 - d);
-        tool.setAttribute('transform', 'translate(' + pt.x + ' ' + pt.y + ')');
-      }
-      if (!still) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-  })();
-
 })();
