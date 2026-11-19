@@ -718,3 +718,4 @@ body.sub .cascade-only { min-height: 100svh; }
 @keyframes penanch { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .pen-line, .pen-anchors { animation: none; stroke-dashoffset: 0; } }
 .next-btn.last .pen-fx { transform: none; animation: none; }
+.about-hero .hdr-rule { z-index: 0; } .about-hero .hero-cascade { z-index: 1; }
