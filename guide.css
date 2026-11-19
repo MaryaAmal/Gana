@@ -685,3 +685,5 @@ body.sub .cascade-only { min-height: 100svh; }
 @media (max-width: 780px) { .hdr-cap { font-size: .8rem; } .hdr-cap.hc-l { bottom: calc(12% + 6px); } .hdr-rule.hr1 { top: 40%; } .hdr-rule.hr2 { display: none; } .hdr-cap.hc-m { top: calc(40% - 3.6em); } }
 .exp-intro .hdr-cap.hc-m { top: auto; left: auto; bottom: calc(16% - 4px); right: clamp(16px, 4vw, 70px); text-align: right; }
 @media (max-width: 780px) { .exp-intro .hdr-cap.hc-m { bottom: calc(12% + 6px); } .exp-intro .hdr-cap.hc-l { bottom: calc(12% + 50px); } .exp-intro .hdr-rule.hr1 { top: 40%; } }
+.exp-intro::after { background: none !important; }
+.exp-intro .hdr-cap { text-shadow: 0 1px 14px rgba(27,27,27,.45), 0 0 2px rgba(27,27,27,.25); }
