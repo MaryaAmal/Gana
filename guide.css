@@ -687,3 +687,21 @@ body.sub .cascade-only { min-height: 100svh; }
 @media (max-width: 780px) { .exp-intro .hdr-cap.hc-m { bottom: calc(12% + 6px); } .exp-intro .hdr-cap.hc-l { bottom: calc(12% + 50px); } .exp-intro .hdr-rule.hr1 { top: 40%; } }
 .exp-intro::after { background: none !important; }
 .exp-intro .hdr-cap { text-shadow: 0 1px 14px rgba(27,27,27,.45), 0 0 2px rgba(27,27,27,.25); }
+/* Experience header: animated bottle belt on the home gradient */
+.exp-intro { background:
+   radial-gradient(60% 70% at 8% 12%,#D4E67A 0%,rgba(212,230,122,0) 60%),
+   radial-gradient(55% 60% at 92% 20%,#E8F0B0 0%,rgba(232,240,176,0) 62%),
+   radial-gradient(70% 60% at 85% 95%,#F2E8D5 0%,rgba(242,232,213,0) 60%),
+   radial-gradient(60% 50% at 10% 95%,#B9D44A 0%,rgba(185,212,74,0) 65%),
+   linear-gradient(160deg,#A9CA32,#99BC20 45%,#8FB31C) !important; }
+.exp-intro .hdr-cap { text-shadow: none; }
+.belt { position: absolute; left: 0; right: 0; top: 14%; height: 56%; z-index: 3; overflow: hidden; pointer-events: none; }
+.belt-track { display: flex; width: max-content; height: 100%; animation: beltmove 34s linear infinite; will-change: transform; }
+.belt-set { display: flex; align-items: flex-end; height: 100%; gap: clamp(60px, 9vw, 150px); padding-right: clamp(60px, 9vw, 150px); }
+.belt-set img { height: 100%; width: auto; display: block; filter: drop-shadow(0 26px 24px rgba(27,27,27,.24)); animation: beltbob 5s ease-in-out infinite; }
+.belt-set img:nth-child(2n) { animation-delay: -1.7s; } .belt-set img:nth-child(3n) { animation-delay: -3.1s; }
+@keyframes beltmove { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@keyframes beltbob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@media (max-width: 780px) { .belt { top: 12%; height: 46%; } .belt-track { animation-duration: 26s; } }
+@media (prefers-reduced-motion: reduce) { .belt-track, .belt-set img { animation: none; } }
+.belt { overflow: visible; overflow-x: clip; overflow-y: visible; }
