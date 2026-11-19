@@ -32,24 +32,22 @@
     ['Welcoming', 'Our spaces and communication feel friendly, comfortable, and easy to understand.', 'Come in, take a look, try a taste.'],
     ['Thoughtful', 'We consider how each design decision affects the experience, from holding the bottle to understanding its packaging.', 'A bottle that feels like cane in your hand.']
   ];
-  var tt = $('trait-tabs'), tp = $('trait-panel');
+  var pb = $('pv-bottle'), pd = $('pv-detail');
   traits.forEach(function (t, i) {
-    var b = el('button', '', t[0]); b.type = 'button'; b.setAttribute('role', 'tab'); b.id = 'trait-' + i;
+    var b = el('button', 'pv-layer pv-l' + i, '<span class="pv-no">0' + (i + 1) + '</span><span class="pv-name">' + t[0] + '</span>');
+    b.type = 'button'; b.setAttribute('role', 'tab'); b.id = 'trait-' + i;
     b.addEventListener('click', function () { showTrait(i); });
-    tt.appendChild(b);
+    pb.appendChild(b);
   });
   function showTrait(i) {
-    Array.prototype.forEach.call(tt.children, function (b, k) { b.setAttribute('aria-selected', String(k === i)); b.tabIndex = k === i ? 0 : -1; });
-    tp.setAttribute('aria-labelledby', 'trait-' + i);
-    tp.innerHTML = '';
-    tp.appendChild(el('h4', '', traits[i][0]));
-    tp.appendChild(el('p', '', traits[i][1]));
-    tp.appendChild(el('p', 'sample', '&ldquo;' + traits[i][2] + '&rdquo;'));
+    Array.prototype.forEach.call(pb.children, function (b, k) { b.setAttribute('aria-selected', String(k === i)); b.tabIndex = k === i ? 0 : -1; });
+    pd.setAttribute('aria-labelledby', 'trait-' + i);
+    pd.innerHTML = '<span class="pv-tag">Personality ' + (i + 1) + ' of 4</span><h4>' + traits[i][0] + '</h4><p>' + traits[i][1] + '</p><p class="sample">&ldquo;' + traits[i][2] + '&rdquo;</p>';
   }
-  tt.addEventListener('keydown', function (e) {
-    var i = Array.prototype.findIndex.call(tt.children, function (b) { return b.getAttribute('aria-selected') === 'true'; });
-    if (e.key === 'ArrowRight') { i = (i + 1) % traits.length; } else if (e.key === 'ArrowLeft') { i = (i + traits.length - 1) % traits.length; } else return;
-    e.preventDefault(); showTrait(i); tt.children[i].focus();
+  pb.addEventListener('keydown', function (e) {
+    var i = Array.prototype.findIndex.call(pb.children, function (b) { return b.getAttribute('aria-selected') === 'true'; });
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') i = (i + 1) % traits.length; else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') i = (i + traits.length - 1) % traits.length; else return;
+    e.preventDefault(); showTrait(i); pb.children[i].focus();
   });
   showTrait(0);
 
@@ -58,17 +56,15 @@
     ['Utilize our sustainability-forward packaging solutions.', 'Our bottles are made to be reused or recycled.'],
     ['Revolutionary hydration technology.', 'Cane, pressed. Nothing else.']
   ];
-  var vl = $('voice-list');
+  var vl = $('voice-list'), dial = $('voice-dial'), dl = $('voice-dial-label');
   voice.forEach(function (v) {
-    var li = el('li'), b = el('button', '', '<span class="hint">Tap to rewrite</span><span class="bad">' + v[0] + '</span><span class="good">' + v[1] + '</span>');
-    b.type = 'button'; b.setAttribute('aria-expanded', 'false');
-    b.addEventListener('click', function () {
-      var on = b.getAttribute('aria-expanded') === 'true';
-      b.setAttribute('aria-expanded', String(!on));
-      b.querySelector('.hint').textContent = on ? 'Tap to rewrite' : 'In GANA’s voice';
-    });
-    li.appendChild(b); vl.appendChild(li);
+    vl.appendChild(el('li', '', '<div class="bub bub-bad">' + v[0] + '</div><div class="bub bub-good">' + v[1] + '</div>'));
   });
+  function setVoice() {
+    var on = dial.checked; vl.classList.toggle('is-gana', on);
+    dl.textContent = on ? 'GANA voice: simple, warm, clear' : 'Stiff voice: what we avoid';
+  }
+  dial.addEventListener('change', setVoice); setVoice();
 
   /* ---------- pillars ---------- */
   var pillars = [
