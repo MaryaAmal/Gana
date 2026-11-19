@@ -240,7 +240,7 @@
     ['Scent', 'Images/gana-scent-diffuser.jpeg', 'Freshness', 'Scent supports the connection to the ingredient and the freshness of the store. The existing direction uses a floor-standing diffuser in GANA Green #99BC20, near the service area without interrupting circulation.', 'Keep any added scent subtle so it sits comfortably alongside the aroma of preparation and the drink itself.']
   ];
   var et = $('exp-tabs'), ep = $('exp-panel');
-  EXP.forEach(function (x, i) {
+  if (et) EXP.forEach(function (x, i) {
     var b = el('button', '', x[0]); b.type = 'button'; b.setAttribute('role', 'tab'); b.id = 'exp-t' + i;
     b.addEventListener('click', function () { showExp(i); }); et.appendChild(b);
   });
@@ -250,12 +250,12 @@
     ep.setAttribute('aria-labelledby', 'exp-t' + i);
     ep.innerHTML = '<img src="' + x[1] + '" alt="" width="1200" height="900"><div><span class="tag">' + x[2] + '</span><h3>' + x[0] + '</h3><p>' + x[3] + '</p><p>' + x[4] + '</p></div>';
   }
-  et.addEventListener('keydown', function (e) {
+  if (et) et.addEventListener('keydown', function (e) {
     var i = Array.prototype.findIndex.call(et.children, function (b) { return b.getAttribute('aria-selected') === 'true'; });
     if (e.key === 'ArrowRight') i = (i + 1) % EXP.length; else if (e.key === 'ArrowLeft') i = (i + EXP.length - 1) % EXP.length; else return;
     e.preventDefault(); showExp(i); et.children[i].focus();
   });
-  showExp(0);
+  if (et && ep) showExp(0);
 
   /* ---------- seven-part prompt ---------- */
   var PARTS = [

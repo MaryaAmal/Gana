@@ -451,3 +451,14 @@ body.sub .cascade-only { min-height: 100svh; }
 #texture .figs img { height: clamp(300px, 52vh, 560px); aspect-ratio: auto; }
 #texture .g-fig figcaption { font-size: 1rem; }
 @media (max-width: 900px) { #texture .figs img { height: 260px; } }
+/* Experience page */
+.exp-scene { padding: 0 !important; }
+.exp-big { width: 100%; min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: stretch; }
+.exp-big img { width: 100%; height: 100%; min-height: 100svh; object-fit: cover; display: block; }
+.exp-scene.flip .exp-big { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+.exp-scene.flip .exp-big img { order: 2; }
+.exp-copy { align-self: center; padding: clamp(2rem, 5vw, 5rem); max-width: 40rem; }
+.exp-copy h2 { font-size: clamp(2.6rem, 5vw, 4.6rem); margin: 0 0 1.2rem; font-weight: 400; letter-spacing: -.03em; }
+.exp-copy p { font-weight: 300; line-height: 1.7; margin: 0 0 1rem; font-size: clamp(1rem, 1.2vw, 1.15rem); }
+.exp-copy .tag { display: inline-block; padding: .25rem .7rem; border: var(--edge); border-radius: var(--r); background: var(--green); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem; }
+@media (max-width: 900px) { .exp-big, .exp-scene.flip .exp-big { grid-template-columns: 1fr; } .exp-big img, .exp-scene.flip .exp-big img { order: 0; min-height: 0; height: 56svh; } .exp-copy { padding: 1.5rem 1.25rem 4rem; } }
