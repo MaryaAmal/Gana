@@ -1,18 +1,20 @@
 (function(){
-  var sec=document.getElementById('pour'),v=document.getElementById('pour-video'),bar=document.getElementById('pour-bar');
-  var copies=[].slice.call(document.querySelectorAll('.pc'));
+  var slides=[].slice.call(document.querySelectorAll('.slide')),dots=[].slice.call(document.querySelectorAll('.steps button'));
+  var bottle=document.querySelector('.c-bottle'),i=0,timer=null;
+  var rot=[18,-12,28,6],sc=[1,1.06,.96,1.04];
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var target=0,cur=0,dur=12;
-  function prog(){var r=sec.getBoundingClientRect(),max=sec.offsetHeight-window.innerHeight;return Math.min(1,Math.max(0,-r.top/max));}
-  function show(p){copies.forEach(function(c){c.classList.toggle('on',p>=+c.dataset.from&&p<+c.dataset.to);});bar.style.transform='scaleX('+p+')';}
-  function tick(){
-    target=prog(); cur+= (target-cur)*0.14; if(Math.abs(target-cur)<0.0005)cur=target;
-    if(v.readyState>0&&v.duration){dur=v.duration; var t=Math.min(dur-0.04,cur*dur); if(Math.abs(v.currentTime-t)>0.02)v.currentTime=t;}
-    show(target); requestAnimationFrame(tick);
+  document.getElementById('year').textContent=new Date().getFullYear();
+  function go(n){
+    i=(n+slides.length)%slides.length;
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i);s.setAttribute('aria-hidden',k===i?'false':'true');});
+    dots.forEach(function(d,k){d.classList.toggle('on',k===i);});
+    bottle.style.setProperty('--r',rot[i]+'deg');bottle.style.setProperty('--s',sc[i]);
   }
-  if(reduce){v.removeAttribute('src');v.style.display='none';sec.classList.add('static');show(0.5);return;}
-  v.addEventListener('loadedmetadata',function(){v.currentTime=0;});
-  v.load();
-  var pr=v.play(); if(pr&&pr.then){pr.then(function(){v.pause();v.currentTime=0;}).catch(function(){});}
-  requestAnimationFrame(tick);
+  function play(){ if(reduce)return; stop(); timer=setInterval(function(){go(i+1);},6500); }
+  function stop(){ if(timer){clearInterval(timer);timer=null;} }
+  dots.forEach(function(d){d.addEventListener('click',function(){go(+d.dataset.go);play();});});
+  document.querySelector('.c-next').addEventListener('click',function(){go(i+1);play();});
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){go(i+1);play();}if(e.key==='ArrowLeft'){go(i-1);play();}});
+  var card=document.querySelector('.card');card.addEventListener('mouseenter',stop);card.addEventListener('mouseleave',play);
+  go(0);play();
 })();
