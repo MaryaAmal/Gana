@@ -705,3 +705,5 @@ body.sub .cascade-only { min-height: 100svh; }
 @media (max-width: 780px) { .belt { top: 12%; height: 46%; } .belt-track { animation-duration: 26s; } }
 @media (prefers-reduced-motion: reduce) { .belt-track, .belt-set img { animation: none; } }
 .belt { overflow: visible; overflow-x: clip; overflow-y: visible; }
+.exp-intro::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(55,72,8,0) 52%, rgba(55,72,8,.18) 70%, rgba(48,63,6,.5) 100%) !important; }
+.exp-intro .hdr-cap.hc-l { text-shadow: 0 1px 12px rgba(27,27,27,.25); }
