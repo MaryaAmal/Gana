@@ -278,4 +278,32 @@
   }
   showPart(0);
 
+  /* ---------- pattern zoom ---------- */
+  (function () {
+    var v = $('pat-view'), im = $('pat-img'), z = $('pat-zoom'); if (!v || !im || !z) return;
+    var s = 1, x = 0, y = 0, drag = null;
+    function clamp() {
+      var mx = v.clientWidth * (s - 1) / 2, my = v.clientHeight * (s - 1) / 2;
+      x = Math.max(-mx, Math.min(mx, x)); y = Math.max(-my, Math.min(my, y));
+    }
+    function apply() {
+      clamp(); im.style.transform = 'translate(' + x + 'px,' + y + 'px) scale(' + s + ')';
+      z.value = Math.round(s * 100); $('pat-out-val').textContent = Math.round(s * 100) + '%';
+      v.classList.toggle('can-pan', s > 1);
+    }
+    function set(n) { s = Math.max(1, Math.min(3, n)); apply(); }
+    z.addEventListener('input', function () { set(z.value / 100); });
+    $('pat-in').addEventListener('click', function () { set(s + .25); });
+    $('pat-out').addEventListener('click', function () { set(s - .25); });
+    $('pat-reset').addEventListener('click', function () { x = 0; y = 0; set(1); });
+    v.addEventListener('pointerdown', function (e) {
+      if (s <= 1 || e.target.closest('.pat-ctrl')) return;
+      drag = { px: e.clientX, py: e.clientY, x: x, y: y }; v.setPointerCapture(e.pointerId); v.classList.add('drag');
+    });
+    v.addEventListener('pointermove', function (e) { if (!drag) return; x = drag.x + e.clientX - drag.px; y = drag.y + e.clientY - drag.py; apply(); });
+    function end() { drag = null; v.classList.remove('drag'); }
+    v.addEventListener('pointerup', end); v.addEventListener('pointercancel', end);
+    window.addEventListener('resize', apply); apply();
+  })();
+
 })();
