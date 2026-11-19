@@ -46,3 +46,5 @@ body.home{margin:0;font-family:"Gotham","Gotham SSm","Gotham Book","Montserrat",
 .h-nav a[aria-current="page"]{background:#1b1b1b;color:#F2E8D5;opacity:1}
 .h-nav a{white-space:nowrap}
 @media (max-width:600px){.h-nav{right:8px;gap:0}.h-nav a{font-size:.68rem;padding:9px 7px}.h-nav .h-pill{padding:9px 12px}}
+/* no widows */
+h1, h2, h3, .cap, .tick, p { text-wrap: balance; }

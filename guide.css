@@ -723,3 +723,6 @@ body.sub .cascade-only { min-height: 100svh; }
 .seven .ref button { background: var(--cream); }
 @media (max-width: 1100px) { .seven { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .seven { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* no widows: balance headings and sub headings, avoid orphans in paragraphs */
+h1, h2, h3, h4, .kicker, .scene-head p, .hdr-cap, .studio-title h2, .dl-copy h2, .manifesto-close, figcaption { text-wrap: balance; }
+p, li { text-wrap: pretty; }
