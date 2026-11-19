@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=89">
-  <link rel="stylesheet" href="guide.css?v=89">
+  <link rel="stylesheet" href="styles.css?v=90">
+  <link rel="stylesheet" href="guide.css?v=90">
 </head>
 <body class="sub">
 
@@ -173,10 +173,10 @@
         <header class="scene-head"><p class="kicker">Pattern</p><h2>Built from the logo.</h2><p>Repeated logo forms in GANA Green #99BC20 and Cream #F2E8D5. Keep letterforms intact when using them in patterns.</p></header>
         <div class="scene-body">
           <div class="pat-view" id="pat-view" aria-label="Pattern preview. Drag to move when zoomed in.">
-            <img id="pat-img" src="Images/gana-pattern.jpg" alt="GANA logo pattern in green and cream." width="1500" height="1898" draggable="false">
+            <div id="pat-img" class="pat-tile" role="img" aria-label="GANA logo pattern in green and cream."></div>
             <div class="pat-ctrl">
               <button type="button" id="pat-out" aria-label="Zoom out">&minus;</button>
-              <input type="range" id="pat-zoom" min="100" max="300" value="100" step="5" aria-label="Pattern zoom">
+              <input type="range" id="pat-zoom" min="20" max="300" value="100" step="5" aria-label="Pattern zoom">
               <button type="button" id="pat-in" aria-label="Zoom in">+</button>
               <output id="pat-out-val">100%</output>
               <button type="button" id="pat-reset" class="pat-reset">Reset</button>
@@ -245,8 +245,8 @@
     </div>
   </footer>
 
-  <script src="script.js?v=89"></script>
-  <script src="guide.js?v=89"></script>
-  <script src="scenes.js?v=89"></script>
+  <script src="script.js?v=90"></script>
+  <script src="guide.js?v=90"></script>
+  <script src="scenes.js?v=90"></script>
 </body>
 </html>

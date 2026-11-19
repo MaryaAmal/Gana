@@ -629,3 +629,5 @@ body.sub .cascade-only { min-height: 100svh; }
 .pat-ctrl input { width: clamp(100px, 18vw, 220px); accent-color: var(--ink); }
 .pat-ctrl output { font-weight: 700; font-size: .85rem; min-width: 3.2ch; text-align: right; }
 @media (max-width: 600px) { .pat-ctrl { gap: .4rem; padding: .4rem .6rem; width: calc(100% - 1.5rem); justify-content: center; } .pat-ctrl input { width: 90px; } }
+.pat-tile { position: absolute; inset: 0; background: url(Images/pattern-tile.jpg) repeat; }
+.pat-view { cursor: grab; touch-action: none; } .pat-view.drag { cursor: grabbing; }
