@@ -435,3 +435,14 @@ body.sub .scene { min-height: 100svh; }
 html:has(body.sub) { scroll-padding-top: 0; }
 body.sub .cascade-only { min-height: 100svh; }
 @media (max-width: 900px) { body.sub .scene { min-height: 100svh; } }
+
+/* Texture scene: full width */
+.scene-in.full { width: calc(100% - 2 * clamp(1rem, 3vw, 2.5rem)); }
+#texture .scene-body { display: grid; gap: clamp(1rem, 2.5vh, 1.75rem); }
+#texture .tex-lab { grid-template-columns: minmax(0, 1fr); }
+#texture .tex-stage { min-height: clamp(320px, 54vh, 620px); }
+#texture .tex-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem clamp(1rem, 3vw, 3rem); align-items: start; }
+#texture .tex-controls p:last-child { grid-column: auto; }
+#texture .figs { gap: clamp(1rem, 2.5vw, 2rem); }
+#texture .figs img { width: 100%; height: clamp(220px, 38vh, 420px); object-fit: cover; display: block; }
+@media (max-width: 900px) { #texture .tex-controls { grid-template-columns: 1fr; } #texture .tex-stage { min-height: 260px; } }
