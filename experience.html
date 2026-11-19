@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=79">
-  <link rel="stylesheet" href="guide.css?v=82">
+  <link rel="stylesheet" href="styles.css?v=95">
+  <link rel="stylesheet" href="guide.css?v=95">
 </head>
 <body class="sub">
 
@@ -58,9 +58,34 @@
         <div class="exp-copy"><span class="tag">Feel the Cane</span><h2>Touch</h2><p>“Feel the Cane” is GANA’s main tactile expression. The texture helps people recognize the brand through physical contact as well as appearance.</p><p>The bottle is the primary point of contact. Counters, door handles, carriers and selected surfaces extend the idea. Test physical samples for grip, edges and durability.</p></div>
       </div>
     </section>
-    <section class="scene s-cream exp-scene" id="sound" data-label="Sound">
+    <section class="scene s-cream exp-scene exp-wide" id="sound" data-label="Sound">
       <div class="exp-big">
-        <img src="Images/gana-first-press.jpeg" alt="Sound" width="1200" height="900" loading="lazy">
+        <div class="exp-media">
+          <img src="Images/gana-first-press.jpeg" alt="A GANA team member pressing fresh sugarcane juice into a glass" width="1536" height="1024" loading="lazy">
+          <svg class="pour-fx" viewBox="0 0 1536 1024" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <filter id="soft"><feGaussianBlur stdDeviation=".8"/></filter>
+              <clipPath id="stream-clip"><path d="M997 539 C1004 537 1012 539 1017 543 C1011 570 1005 600 1000 628 L988 628 C990 600 993 568 997 539 Z"/></clipPath>
+              <clipPath id="glass-clip"><path d="M945 640 L1026 640 L1016 748 L956 748 Z"/></clipPath>
+              <linearGradient id="flow" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F2F8C0" stop-opacity=".0"/>
+                <stop offset=".35" stop-color="#F2F8C0" stop-opacity=".55"/>
+                <stop offset=".65" stop-color="#8FB11C" stop-opacity=".4"/>
+                <stop offset="1" stop-color="#F2F8C0" stop-opacity="0"/>
+              </linearGradient>
+              <pattern id="flowpat" patternUnits="userSpaceOnUse" x="990" y="530" width="40" height="9" patternTransform="rotate(8 1005 580)">
+                <rect width="40" height="9" fill="url(#flow)"/>
+                <animateTransform attributeName="patternTransform" type="translate" additive="sum" from="0 0" to="0 9" dur=".22s" repeatCount="indefinite"/>
+              </pattern>
+            </defs>
+            <g clip-path="url(#stream-clip)" opacity=".7" filter="url(#soft)"><rect x="980" y="530" width="50" height="104" fill="url(#flowpat)" style="mix-blend-mode:soft-light"/></g>
+            <g class="ripples" fill="none" stroke="#F4F9D0" stroke-width="2">
+              <ellipse cx="994" cy="630" rx="6" ry="2"><animate attributeName="rx" values="5;38" dur="1.6s" repeatCount="indefinite"/><animate attributeName="ry" values="1.5;8" dur="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="1.6s" repeatCount="indefinite"/></ellipse>
+              <ellipse cx="994" cy="630" rx="6" ry="2"><animate attributeName="rx" values="5;38" dur="1.6s" begin=".8s" repeatCount="indefinite"/><animate attributeName="ry" values="1.5;8" dur="1.6s" begin=".8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="1.6s" begin=".8s" repeatCount="indefinite"/></ellipse>
+            </g>
+            
+          </svg>
+        </div>
         <div class="exp-copy"><span class="tag">First Press</span><h2>Sound</h2><p>“First Press” connects the sound of preparation to the product, so the moment the cane is pressed becomes part of the brand.</p><p>Let customers see and hear the pressing where the layout allows, strengthening the connection between the ingredient and the drink.</p></div>
       </div>
     </section>
@@ -85,7 +110,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=79"></script>
-  <script src="scenes.js?v=79"></script>
+  <script src="script.js?v=95"></script>
+  <script src="scenes.js?v=95"></script>
 </body>
 </html>

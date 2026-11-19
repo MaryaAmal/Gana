@@ -638,3 +638,13 @@ body.sub .cascade-only { min-height: 100svh; }
 .vr-bad { background: #fff; color: #666; text-decoration: line-through; text-decoration-color: rgba(27,27,27,.35); }
 .vr-good { background: var(--green); font-weight: 500; border-radius: 28px 28px 8px 28px !important; }
 @media (max-width: 700px) { .voice-row { grid-template-columns: 1fr; } }
+/* Experience: media wrapper + pour animation */
+.exp-media { position: relative; min-height: 100svh; overflow: hidden; }
+.exp-media img { position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; object-fit: cover; }
+.pour-fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.exp-scene.flip .exp-media { order: 2; }
+@media (max-width: 900px) { .exp-media, .exp-scene.flip .exp-media { order: 0; min-height: 0; height: 56svh; } }
+@media (prefers-reduced-motion: reduce) { .pour-fx * { animation: none !important; } .pour-fx animate, .pour-fx animateTransform { display: none; } }
+.exp-wide .exp-big { grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); }
+.exp-wide .exp-copy { padding: clamp(1.5rem, 3vw, 3rem); }
+@media (max-width: 900px) { .exp-wide .exp-big { grid-template-columns: 1fr; } }
