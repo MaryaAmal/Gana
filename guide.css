@@ -543,3 +543,10 @@ body.sub .cascade-only { min-height: 100svh; }
 .dl-preview { max-height: 70svh; }
 .dl-preview img { max-height: 70svh; object-fit: cover; }
 @media (max-width: 900px) { .scene-in.wide.dl-in { grid-template-columns: minmax(0, 1fr); } }
+/* Nav: selected state, same on every page */
+.h-nav { gap: 2px; }
+.h-nav a { line-height: 20px; padding: 11px clamp(8px, 1.3vw, 18px); border-radius: 99px; transition: background .2s, color .2s; }
+.h-nav .h-pill { padding: 11px 20px; }
+.h-nav a[aria-current="page"] { background: #1b1b1b; color: #F2E8D5; opacity: 1; }
+.h-nav a { white-space: nowrap; }
+@media (max-width: 600px) { .h-nav { right: 8px; gap: 0; } .h-nav a { font-size: .68rem; padding: 9px 7px; } .h-nav .h-pill { padding: 9px 12px; } }
