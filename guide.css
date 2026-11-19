@@ -726,3 +726,27 @@ body.sub .cascade-only { min-height: 100svh; }
 /* no widows: balance headings and sub headings, avoid orphans in paragraphs */
 h1, h2, h3, h4, .kicker, .scene-head p, .hdr-cap, .studio-title h2, .dl-copy h2, .manifesto-close, figcaption { text-wrap: balance; }
 p, li { text-wrap: pretty; }
+
+/* brand overview with photo */
+.overview-photo { position: relative; overflow: hidden; }
+.overview-photo .ov-bg { position: absolute; left: 0; right: 0; top: 0; height: 62%; z-index: 0; }
+.overview-photo .ov-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; display: block; }
+.overview-photo .ov-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,80,150,.32) 0%, rgba(20,80,150,0) 50%), linear-gradient(180deg, rgba(153,188,32,0) 78%, #99BC20 100%); }
+.overview-photo .scene-in { position: relative; z-index: 1; min-height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.overview-photo .scene-head { display: block; max-width: min(40vw, 560px); }
+.overview-photo .scene-head h2, .overview-photo .scene-head p, .overview-photo .kicker { color: #fff; text-shadow: 0 1px 14px rgba(8, 50, 100, .45); }
+.overview-photo .scene-head p { margin-top: .8rem; font-size: clamp(.9rem, 1.15vw, 1.05rem); }
+.overview-photo .ov-cols { margin-top: auto; }
+@media (max-width: 900px) {
+  .overview-photo .ov-bg { height: 34%; }
+  .overview-photo .scene-head { max-width: none; }
+  .overview-photo .scene-head p { display: none; }
+  .overview-photo .scene-in { justify-content: flex-start; gap: 1rem; }
+  .overview-photo .ov-cols { margin-top: 38vw; }
+}
+#overview .scene-in.wide .scene-head { display: block; grid-template-columns: none; width: min(38vw, 520px); max-width: none; margin: 0; }
+#overview .scene-in.wide .scene-head p:not(.kicker) { grid-column: auto; margin-top: .8rem; }
+@media (max-width: 900px) { #overview .scene-in.wide .scene-head { width: auto; } }
+#overview .scene-in.wide .scene-head { align-self: flex-start; margin: 0 !important; }
+#overview .scene-in.wide .scene-head h2 { font-size: clamp(2rem, 3.6vw, 3.4rem); }
+.overview-photo .ov-cols .g-tag { color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
