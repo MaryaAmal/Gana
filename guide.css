@@ -707,3 +707,14 @@ body.sub .cascade-only { min-height: 100svh; }
 .belt { overflow: visible; overflow-x: clip; overflow-y: visible; }
 .exp-intro::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, rgba(55,72,8,0) 52%, rgba(55,72,8,.18) 70%, rgba(48,63,6,.5) 100%) !important; }
 .exp-intro .hdr-cap.hc-l { text-shadow: 0 1px 12px rgba(27,27,27,.25); }
+/* Last scene on Brand Guidelines: pen tool replaces the circle button */
+.pen-fx { display: none; }
+.next-btn.last:has(.pen-fx) { width: 150px; height: 80px; background: transparent; border: 0 !important; border-radius: 0 !important; box-shadow: none; padding: 0; }
+.next-btn.last:has(.pen-fx) > svg:not(.pen-fx) { display: none; }
+.next-btn.last .pen-fx { display: block; width: 150px; height: 80px; overflow: visible; }
+
+@keyframes pendraw { 0% { stroke-dashoffset: 100; } 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+
+@keyframes penanch { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .pen-line, .pen-anchors { animation: none; stroke-dashoffset: 0; } }
+.next-btn.last .pen-fx { transform: none; animation: none; }
